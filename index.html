@@ -279,7 +279,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-25 17:19:42" itemprop="dateModified" datetime="2021-01-25T17:19:42+08:00">2021-01-25</time>
+                <time title="修改时间：2021-01-25 18:42:46" itemprop="dateModified" datetime="2021-01-25T18:42:46+08:00">2021-01-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -306,10 +306,15 @@
 <h1 id="安装NexT主题"><a href="#安装NexT主题" class="headerlink" title="安装NexT主题"></a>安装NexT主题</h1><p>在博客根目录打开命令行，输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
 <p>安装完成后，打开博客配置文件修改最上方的<code>theme</code>项为<code>next</code>。</p>
-<p>修改完成后命令行输入<code>hexo s</code>本地运行一下看是否生效。</p>
+<p>修改完成后命令行输入<code>hexo s</code>本地运行一下看是否生效。（接下来的每一步操作都可以运行验证一下）</p>
 <h1 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h1><p>主题修改可以参考官网给出的<a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/getting-started.html">教程</a> ，本文仅介绍一些常见的修改。</p>
 <h2 id="修改语言"><a href="#修改语言" class="headerlink" title="修改语言"></a>修改语言</h2><p>修改博客配置文件下的<code>language</code>项为<code>zh-CN</code></p>
 <h2 id="修改菜单及创建分类页"><a href="#修改菜单及创建分类页" class="headerlink" title="修改菜单及创建分类页"></a>修改菜单及创建分类页</h2><p>修改主题配置文件下的<code>menu</code>项，按需要打开菜单。例如我需要把标签页面、分类页面打开，就把<code>tags</code>、<br><code>categories</code>项前面的<code>#</code>去掉就行了。</p>
+<p>在博客根目录打开命令行，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n page tags</span><br><span class="line">$ hexo n page categories</span><br></pre></td></tr></table></figure>
+<p>这时候在<code>source</code>文件夹下下将有<code>index.md</code>,修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2021-01-24 15:19:01</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p><code>tags</code>文件夹中<code>tpye： &quot;&lt;&gt;&quot;</code>的内容填<code>tags</code>。</p>
 <h2 id="修改主题风格"><a href="#修改主题风格" class="headerlink" title="修改主题风格"></a>修改主题风格</h2><p>NexT自带四种主题风格，可以在主题配置文件搜索<code>Scheme</code>项，将需要的风格前的<code>#</code>去掉，注意只能开启一个风格。</p>
 <p>博客推荐使用<code>Pisces</code>和<code>Gemini</code>这两种风格</p>
 <h2 id="设置个人头像"><a href="#设置个人头像" class="headerlink" title="设置个人头像"></a>设置个人头像</h2><p>编辑主题配置文件，搜索修改字段<code>avatar</code>,<code>url</code>值设置成头像的链接地址。可以设置成在线的图片地址。也可以把图片放在本地。</p>
@@ -360,10 +365,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-24 12:22:16 / 修改时间：16:28:15" itemprop="dateCreated datePublished" datetime="2021-01-24T12:22:16+08:00">2021-01-24</time>
+              <time title="创建时间：2021-01-24 12:22:16" itemprop="dateCreated datePublished" datetime="2021-01-24T12:22:16+08:00">2021-01-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-25 18:24:30" itemprop="dateModified" datetime="2021-01-25T18:24:30+08:00">2021-01-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -429,7 +440,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/24/%E8%A7%86%E8%A7%89slam/">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/24/%E8%A7%86%E8%A7%89slam1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/profile.jpg">
@@ -443,7 +454,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/24/%E8%A7%86%E8%A7%89slam/" class="post-title-link" itemprop="url">视觉slam14讲——第一讲</a>
+            <a href="/2021/01/24/%E8%A7%86%E8%A7%89slam1/" class="post-title-link" itemprop="url">视觉slam14讲——第一讲</a>
         </h2>
 
         <div class="post-meta">
