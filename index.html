@@ -157,6 +157,393 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/31/ros5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/31/ros5/" class="post-title-link" itemprop="url">ROS笔记（五）ROS文件系统相关命令和ROS计算图</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-31 21:10:36 / 修改时间：22:16:48" itemprop="dateCreated datePublished" datetime="2021-01-31T21:10:36+08:00">2021-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1、增"><a href="#1、增" class="headerlink" title="1、增"></a>1、增</h1><p>catkin_create_pkg 自定义包名 依赖包 === 创建新的ROS功能包</p>
+<p>sudo apt install xxx === 安装 ROS功能包</p>
+<h1 id="2、删"><a href="#2、删" class="headerlink" title="2、删"></a>2、删</h1><p>sudo apt purge xxx ==== 删除某个功能包</p>
+<h1 id="3、查"><a href="#3、查" class="headerlink" title="3、查"></a>3、查</h1><p>rospack list === 列出所有功能包</p>
+<p>rospack find 包名 === 查找某个功能包是否存在，如果存在返回安装路径</p>
+<p>roscd 包名 === 进入某个功能包</p>
+<p>rosls 包名 === 列出某个包下的文件</p>
+<p>apt search xxx === 搜索某个功能包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt search ros-melodic-* | grep -i gmapping </span><br><span class="line">&#x2F;&#x2F;查找melodic下gmapping为关键字的包</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/31/ros5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/31/ros4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/31/ros4/" class="post-title-link" itemprop="url">ROS笔记（四）ROS文件系统与package.xml、CMakeLists.txt解析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-31 21:10:32 / 修改时间：22:02:34" itemprop="dateCreated datePublished" datetime="2021-01-31T21:10:32+08:00">2021-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="ROS文件系统"><a href="#ROS文件系统" class="headerlink" title="ROS文件系统"></a>ROS文件系统</h1><p>ROS文件系统级指的是在硬盘上ROS源代码的组织形式，其结构大致可以如下图所示：<br><img src="http://www.autolabor.com.cn/book/ROSTutorials/assets/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F.jpg" alt="avatar"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/31/ros4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/31/ros3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/31/ros3/" class="post-title-link" itemprop="url">ROS笔记（三）launch文件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-31 20:23:02 / 修改时间：22:04:23" itemprop="dateCreated datePublished" datetime="2021-01-31T20:23:02+08:00">2021-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>1、选定功能包右击 —&gt; 添加 launch 文件夹</p>
+<p>2、选定 launch 文件夹右击 —&gt; 添加 launch 文件</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/31/ros3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/31/ros2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/31/ros2/" class="post-title-link" itemprop="url">ROS笔记（二）集成开发环境搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-31 17:07:56 / 修改时间：22:04:08" itemprop="dateCreated datePublished" datetime="2021-01-31T17:07:56+08:00">2021-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="启动vscode"><a href="#启动vscode" class="headerlink" title="启动vscode"></a>启动vscode</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd xxx_ws</span><br><span class="line">code .</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="安装拓展"><a href="#安装拓展" class="headerlink" title="安装拓展"></a>安装拓展</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、C&#x2F;C++</span><br><span class="line">2、CMake Tools</span><br><span class="line">3、Python</span><br><span class="line">4、ROS</span><br><span class="line">5、Chinese（Simplified）Language</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/31/ros2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/31/ros1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/31/ros1/" class="post-title-link" itemprop="url">ROS笔记（一）Helloworld实现</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-31 15:34:07 / 修改时间：22:04:08" itemprop="dateCreated datePublished" datetime="2021-01-31T15:34:07+08:00">2021-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>ROS中的程序即便使用不同的编程语言，实现流程也大致类似，以当前HelloWorld程序为例，实现流程大致如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、先创建一个工作空间；</span><br><span class="line"></span><br><span class="line">2、再创建一个功能包；</span><br><span class="line"></span><br><span class="line">3、编辑源文件；</span><br><span class="line"></span><br><span class="line">4、编辑配置文件；</span><br><span class="line"></span><br><span class="line">5、编译并执行。</span><br></pre></td></tr></table></figure>
+<p>上述流程中，C++和Python只是在步骤3和步骤4的实现细节上存在差异，其他流程基本一致。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/31/ros1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/27/shumeipiteamviewer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -263,7 +650,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-28 21:38:17" itemprop="dateModified" datetime="2021-01-28T21:38:17+08:00">2021-01-28</time>
+                <time title="修改时间：2021-01-31 22:06:25" itemprop="dateModified" datetime="2021-01-31T22:06:25+08:00">2021-01-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,24 +674,14 @@
 
       
           <h1 id="创建新文章"><a href="#创建新文章" class="headerlink" title="创建新文章"></a>创建新文章</h1><p>根目录命令行输入<code>hexo new &lt;模板&gt; &lt;文章名&gt;</code>新建文章<br>通常情况下使用<code>hexo new post &lt;title&gt;</code>即可，<br>注意这里的title不是文章名，具体文章中显示的文章标题可以在文章文件中修改，<br>例如：我这里新建一篇文章，<code>title</code>为<code>article</code><br>命令行输入<code>hexo new post article</code><br>此时在<code>source/_posts/</code>文件夹中多了一个<code>article.md</code>文件。</p>
-<h1 id="修改文章模板"><a href="#修改文章模板" class="headerlink" title="修改文章模板"></a>修改文章模板</h1><p><code>.md</code>文件是使用MarkDown语言编辑的文件，我这边使用的<code>PyCharm</code>编辑器可以在编辑时实时显示，也可以用其他编辑器对其进行编辑。</p>
-<p>文章模板格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo博客新建文章并发布</span><br><span class="line">date: 2018-12-06 12:16:12</span><br><span class="line">tags:</span><br><span class="line">      - Hexo</span><br><span class="line">      - Markdown</span><br><span class="line">categories: 搭建博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>这里的<code>title</code>可以对创建文件时起的名进行修改。</p>
-<p>如果在<code>menu</code>项中选择了<code>tags</code>和<code>categories</code>，会在对应的页面出现链接。</p>
-<p><code>date</code>项可加可不加。</p>
-<p>记得<code>:</code>后 留下一个空格。</p>
-<h1 id="MarkDown"><a href="#MarkDown" class="headerlink" title="MarkDown"></a>MarkDown</h1><p>MarkDown语言的资料有很多，有需要的可以在网上进行查找，这边只介绍一些常见的。</p>
-<h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p>两行中空置一行即为换行</p>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>用<code>#</code>作为标题的记号</p>
-<p>在<code>#</code>与内容之间留有一个空格</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 第一级</span><br><span class="line">## 第二级</span><br></pre></td></tr></table></figure>
-<h2 id="行内式"><a href="#行内式" class="headerlink" title="行内式"></a>行内式</h2><p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C语言里的函数 &#96;scanf()&#96; 怎么使用？</span><br></pre></td></tr></table></figure>
-<p>显示效果：</p>
-<p>C语言里的函数 <code>scanf() </code>怎么使用？</p>
-<h2 id="多行代码"><a href="#多行代码" class="headerlink" title="多行代码"></a>多行代码</h2><p>使用如下格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;&#96;&#96;&#96;</span><br><span class="line">代码内容</span><br><span class="line">&#96;&#96;&#96;&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/24/make-blog/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -354,7 +731,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-28 21:38:06" itemprop="dateModified" datetime="2021-01-28T21:38:06+08:00">2021-01-28</time>
+                <time title="修改时间：2021-01-31 22:05:33" itemprop="dateModified" datetime="2021-01-31T22:05:33+08:00">2021-01-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -382,25 +759,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
 <p>安装完成后，打开博客配置文件修改最上方的<code>theme</code>项为<code>next</code>。</p>
 <p>修改完成后命令行输入<code>hexo s</code>本地运行一下看是否生效。（接下来的每一步操作都可以运行验证一下）</p>
-<h1 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h1><p>主题修改可以参考官网给出的<a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/getting-started.html">教程</a> ，本文仅介绍一些常见的修改。</p>
-<h2 id="修改语言"><a href="#修改语言" class="headerlink" title="修改语言"></a>修改语言</h2><p>修改博客配置文件下的<code>language</code>项为<code>zh-CN</code></p>
-<h2 id="修改菜单及创建分类页"><a href="#修改菜单及创建分类页" class="headerlink" title="修改菜单及创建分类页"></a>修改菜单及创建分类页</h2><p>修改主题配置文件下的<code>menu</code>项，按需要打开菜单。例如我需要把标签页面、分类页面打开，就把<code>tags</code>、<br><code>categories</code>项前面的<code>#</code>去掉就行了。</p>
-<p>在博客根目录打开命令行，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n page tags</span><br><span class="line">$ hexo n page categories</span><br></pre></td></tr></table></figure>
-<p>这时候在<code>source</code>文件夹下下将有<code>index.md</code>,修改为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2021-01-24 15:19:01</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p><code>tags</code>文件夹中<code>tpye： &quot;&lt;&gt;&quot;</code>的内容填<code>tags</code>。</p>
-<h2 id="修改主题风格"><a href="#修改主题风格" class="headerlink" title="修改主题风格"></a>修改主题风格</h2><p>NexT自带四种主题风格，可以在主题配置文件搜索<code>Scheme</code>项，将需要的风格前的<code>#</code>去掉，注意只能开启一个风格。</p>
-<p>博客推荐使用<code>Pisces</code>和<code>Gemini</code>这两种风格</p>
-<h2 id="设置个人头像"><a href="#设置个人头像" class="headerlink" title="设置个人头像"></a>设置个人头像</h2><p>编辑主题配置文件，搜索修改字段<code>avatar</code>,<code>url</code>值设置成头像的链接地址。可以设置成在线的图片地址。也可以把图片放在本地。</p>
-<p>本地设置：放置在source/images目录下，设置为<code>url: /images/&lt;&gt;.&lt;&gt;</code></p>
-<p><code>rounded</code>项可以设置头像为圆形，设置为<code>ture</code>后会自动根据头像的尺寸将头像变化为圆形</p>
-<h2 id="设置作者昵称与站点描述"><a href="#设置作者昵称与站点描述" class="headerlink" title="设置作者昵称与站点描述"></a>设置作者昵称与站点描述</h2><p>设置博客配置文件中的<code>author</code>为昵称，<code>description</code>为描述。</p>
-<h2 id="侧边栏社交链接"><a href="#侧边栏社交链接" class="headerlink" title="侧边栏社交链接"></a>侧边栏社交链接</h2><p>编辑主题配置文件，搜索修改字段<code>social</code>，将需要的链接前的<code>#</code>去掉，并对链接进行修改</p>
-<h2 id="设置网站图标"><a href="#设置网站图标" class="headerlink" title="设置网站图标"></a>设置网站图标</h2><p>搜索或<a target="_blank" rel="noopener" href="https://www.easyicon.net/covert/">制作</a>, 并将图标名称改为<code>favicon16.ico</code>与<code>favicon32.ico</code>，<br>然后把图标放在<code>/themes/next/source/images</code>或者放在根目录的<code>/source/images</code>文件夹里。</p>
-<p>在主题配置文件内搜索<code>favicon</code>字段，把 <code>small、medium</code>字段的地址修改为<code>/images/favicon16.ico</code> 与<code> /images/favicon32.ico</code>。</p>
-<h1 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h1><p>在博客根目录打开命令行，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/24/next/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -450,7 +816,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-28 21:37:29" itemprop="dateModified" datetime="2021-01-28T21:37:29+08:00">2021-01-28</time>
+                <time title="修改时间：2021-01-31 22:05:18" itemprop="dateModified" datetime="2021-01-31T22:05:18+08:00">2021-01-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -477,28 +843,14 @@
 <h1 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h1><p>首先你需要有一个github账号，并创建&lt;Github‘s User name&gt;.github.io的项目,并保证该项目为空。</p>
 <h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node.js下载页</a></p>
 <p>选择长期支持版本即可</p>
-<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git下载页</a><br>按默认下载</p>
-<p>在桌面空白处点击右键，你就会发现右键菜单多了两个命令 <code>Git GUI here</code>和<code>Git bash here</code></p>
-<h2 id="制作博客"><a href="#制作博客" class="headerlink" title="制作博客"></a>制作博客</h2><p>在电脑任意盘符空白处，右键新建名为blog的文件夹，文件名最好不要是中文。</p>
-<p>右键<code>Git bash here</code>,输入（注意该过程不是在blog文件夹里）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>进入blog文件夹，右键<code>Git bash here</code>,输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-<p>浏览器中打开 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>  ,可以看到一个网页，说明Hexo博客已经成功在本地运行。</p>
-<p>按<code>Ctrl+c</code>，关闭</p>
-<h2 id="将博客部署到Github-Pages"><a href="#将博客部署到Github-Pages" class="headerlink" title="将博客部署到Github Pages"></a>将博客部署到Github Pages</h2><h3 id="安装发布插件"><a href="#安装发布插件" class="headerlink" title="安装发布插件"></a>安装发布插件</h3><p>在blog文件夹中命令行右键<code>Git bash here</code>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h3 id="修改Hexo站点的配置文件"><a href="#修改Hexo站点的配置文件" class="headerlink" title="修改Hexo站点的配置文件"></a>修改Hexo站点的配置文件</h3><p>在blog文件夹中，找到<code>_config.yml</code>文件。使用<code>Notepad++</code>或者<code>Sublime Text</code>（其他编辑软件也可）打开文本。</p>
-<p>找到url,修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: https:&#x2F;&#x2F;&lt;Github&#39;s User name&gt;.github.io&#x2F;</span><br></pre></td></tr></table></figure>
-<p>划到文件最底下，修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;&lt;Github‘s User name&gt;&#x2F;&lt;Github‘s User name&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>注意！请使用英文输入法，<code>:</code>和<code>：</code>是有区别的，其次在<code>:</code>的后面请留出一个空格，记得保存。</p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>在blog文件夹中命令行右键<code>Git bash here</code>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>按提示输入账号密码，等待远程部署。</p>
-<p>部署完毕后，在<code>https://&lt;Github&#39;s User name&gt;.github.io/</code>查看效果。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/24/hexo/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -663,20 +1015,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"luozhexin.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="启动vscode123cd xxx_wscode . 安装拓展123451、C&#x2F;C++2、CMake Tools3、Python4、ROS5、Chinese（Simplified）Language">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROS笔记（二）集成开发环境搭建">
+<meta property="og:url" content="https://luozhexin.github.io/2021/01/31/ros2/index.html">
+<meta property="og:site_name" content="onewall的博客">
+<meta property="og:description" content="启动vscode123cd xxx_wscode . 安装拓展123451、C&#x2F;C++2、CMake Tools3、Python4、ROS5、Chinese（Simplified）Language">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-31T09:07:56.879Z">
+<meta property="article:modified_time" content="2021-01-31T14:04:08.445Z">
+<meta property="article:author" content="luozhexin">
+<meta property="article:tag" content="ROS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://luozhexin.github.io/2021/01/31/ros2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>ROS笔记（二）集成开发环境搭建 | onewall的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">onewall的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/31/ros2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ROS笔记（二）集成开发环境搭建
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-31 17:07:56 / 修改时间：22:04:08" itemprop="dateCreated datePublished" datetime="2021-01-31T17:07:56+08:00">2021-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="启动vscode"><a href="#启动vscode" class="headerlink" title="启动vscode"></a>启动vscode</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd xxx_ws</span><br><span class="line">code .</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="安装拓展"><a href="#安装拓展" class="headerlink" title="安装拓展"></a>安装拓展</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、C&#x2F;C++</span><br><span class="line">2、CMake Tools</span><br><span class="line">3、Python</span><br><span class="line">4、ROS</span><br><span class="line">5、Chinese（Simplified）Language</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h1 id="vscode-中编译-ros"><a href="#vscode-中编译-ros" class="headerlink" title="vscode 中编译 ros"></a>vscode 中编译 ros</h1><p>快捷键 ctrl + shift + B 调用编译，选择:<code>catkin_make:build</code></p>
+<p>可以点击配置设置为默认，修改.vscode/tasks.json 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&#x2F;&#x2F; 有关 tasks.json 格式的文档，请参见</span><br><span class="line">    &#x2F;&#x2F; https:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkId&#x3D;733558</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;catkin_make:debug&quot;, &#x2F;&#x2F;代表提示的描述性信息</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,  &#x2F;&#x2F;可以选择shell或者process,如果是shell代码是在shell里面运行一个命令，如果是process代表作为一个进程来运行</span><br><span class="line">            &quot;command&quot;: &quot;catkin_make&quot;,&#x2F;&#x2F;这个是我们需要运行的命令</span><br><span class="line">            &quot;args&quot;: [],&#x2F;&#x2F;如果需要在命令后面加一些后缀，可以写在这里，比如-DCATKIN_WHITELIST_PACKAGES&#x3D;“pac1;pac2”</span><br><span class="line">            &quot;group&quot;: &#123;&quot;kind&quot;:&quot;build&quot;,&quot;isDefault&quot;:true&#125;,</span><br><span class="line">            &quot;presentation&quot;: &#123;</span><br><span class="line">                &quot;reveal&quot;: &quot;always&quot;&#x2F;&#x2F;可选always或者silence，代表是否输出信息</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: &quot;$msCompile&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="创建-ROS-功能包"><a href="#创建-ROS-功能包" class="headerlink" title="创建 ROS 功能包"></a>创建 ROS 功能包</h1><p>选定 src 右击 —&gt; create catkin package</p>
+<p>设置包名 添加依赖</p>
+<h1 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    控制台输出 HelloVSCode !!!</span><br><span class="line"></span><br><span class="line">*&#x2F;</span><br><span class="line">#include &quot;ros&#x2F;ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    setlocale(LC_ALL,&quot;&quot;);</span><br><span class="line">    &#x2F;&#x2F;执行节点初始化</span><br><span class="line">    ros::init(argc,argv,&quot;HelloVSCode&quot;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;输出日志</span><br><span class="line">    ROS_INFO(&quot;Hello VSCode!!!哈哈哈哈哈哈哈哈哈哈&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl+shift+K &#x2F;&#x2F;删除整行</span><br><span class="line">ctrl+&#x2F;       &#x2F;&#x2F;取消注释</span><br><span class="line">ctrl+shift+B &#x2F;&#x2F;编译</span><br></pre></td></tr></table></figure>
+<p>PS1: 如果没有代码提示</p>
+<p>修改 .vscode/c_cpp_properties.json</p>
+<p>设置 “cppStandard”: “c++17”</p>
+<p>PS2: main 函数的参数不可以被 const 修饰</p>
+<p>PS3: 当ROS__INFO 终端输出有中文时，会出现乱码</p>
+<p>INFO: ????????????????????????</p>
+<p>解决办法：在函数开头加入下面代码的任意一句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setlocale(LC_CTYPE, &quot;zh_CN.utf8&quot;);</span><br><span class="line">setlocale(LC_ALL, &quot;&quot;); &#x2F;&#x2F;推荐</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>在vscode中新建终端，先roscore，再开一个终端，source完rosrun</p>
+<h1 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h1><p>在 功能包 下新建 scripts 文件夹，添加 python 文件，并添加可执行权限</p>
+<p>添加可执行权限：右键scripts，在终端中打开<code>chmod +x *.py</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#! &#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">#coding&#x3D;utf-8</span><br><span class="line">#避免中文编码报错</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">    Python 版本的 HelloVScode，执行在控制台输出 HelloVScode</span><br><span class="line">    实现:</span><br><span class="line">    1.导包</span><br><span class="line">    2.初始化 ROS 节点</span><br><span class="line">    3.日志输出 HelloWorld</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">import rospy # 1.导包</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    rospy.init_node(&quot;Hello_Vscode_p&quot;)  # 2.初始化 ROS 节点</span><br><span class="line">    rospy.loginfo(&quot;Hello VScode, 我是 Python ....&quot;)  #3.日志输出 HelloWorld</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="配置-CMakeLists-txt"><a href="#配置-CMakeLists-txt" class="headerlink" title="配置 CMakeLists.txt"></a>配置 CMakeLists.txt</h1><p>C++ 配置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">add_executable(节点名称</span><br><span class="line">  src&#x2F;C++源文件名.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(节点名称</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Python 配置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts&#x2F;自定义文件名.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>noetic版本下需要对CMakeList的python部分进行配置，目的是1、正确安装python脚本<br>2、定位合适的python解释器</p>
+<p>而在melodic及以前的版本，只需要对.py文件进行权限设置，直接rosrun即可。</p>
+<p>在noetic版本下，现象：当不配置CMakeList.txt 执行python文件抛出异常：</p>
+<p>/usr/bin/env： “python”： 没有那个文件目录</p>
+<p>原因：当前noetic使用的是python3</p>
+<p>解决：</p>
+<p>1、直接声明解释器为python3（#! /usr/bin/env python3）（不建议）</p>
+<p>2、通过软连接将python链接到python3</p>
+<pre><code>sudo ln -s /usr/bin/python3 /usr/bin/python</code></pre>
+<h1 id="其他IDE"><a href="#其他IDE" class="headerlink" title="其他IDE"></a>其他IDE</h1><p>ROS 开发可以使用的 IDE 还是比较多的，除了上述的 VScode，还有 Eclipse、QT、PyCharm、Roboware ….,详情可以参考官网介绍:<a target="_blank" rel="noopener" href="http://wiki.ros.org/IDEs">http://wiki.ros.org/IDEs</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ROS/" rel="tag"># ROS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/31/ros1/" rel="prev" title="ROS笔记（一）Helloworld实现">
+      <i class="fa fa-chevron-left"></i> ROS笔记（一）Helloworld实现
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/31/ros3/" rel="next" title="ROS笔记（三）launch文件">
+      ROS笔记（三）launch文件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8vscode"><span class="nav-number">1.</span> <span class="nav-text">启动vscode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%8B%93%E5%B1%95"><span class="nav-number">2.</span> <span class="nav-text">安装拓展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vscode-%E4%B8%AD%E7%BC%96%E8%AF%91-ros"><span class="nav-number">3.</span> <span class="nav-text">vscode 中编译 ros</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-ROS-%E5%8A%9F%E8%83%BD%E5%8C%85"><span class="nav-number">4.</span> <span class="nav-text">创建 ROS 功能包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.</span> <span class="nav-text">C++实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">5.1.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">5.2.</span> <span class="nav-text">运行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python%E5%AE%9E%E7%8E%B0"><span class="nav-number">6.</span> <span class="nav-text">Python实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-CMakeLists-txt"><span class="nav-number">7.</span> <span class="nav-text">配置 CMakeLists.txt</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96IDE"><span class="nav-number">8.</span> <span class="nav-text">其他IDE</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="luozhexin"
+      src="/images/profile.jpg">
+  <p class="site-author-name" itemprop="name">luozhexin</p>
+  <div class="site-description" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/luozhexin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;luozhexin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:loswhite242@gmail.com" title="E-Mail → mailto:loswhite242@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">luozhexin</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
