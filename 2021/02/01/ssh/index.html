@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"luozhexin.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="这篇博客将会教你如何零基础打造个人博客 Github Pages首先你需要有一个github账号，并创建&lt;Github‘s User name&gt;.github.io的项目,并保证该项目为空。 Hexo安装Node.jsNode.js下载页 选择长期支持版本即可">
+  <meta name="description" content="安装ssh服务端sudo apt-get install openssh-server 显示已经安装 开启ssh服务sudo service ssh start 检查ssh是否启动，使用下面命令ps -e | grep ssh 如果输出中含有ssh-agent和sshd就说明成功了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客制作（一）用Hexo搭建个人博客">
-<meta property="og:url" content="https://luozhexin.github.io/2021/01/24/hexo/index.html">
+<meta property="og:title" content="树莓派3b ubuntu18.04-mate ssh">
+<meta property="og:url" content="https://luozhexin.github.io/2021/02/01/ssh/index.html">
 <meta property="og:site_name" content="onewall的博客">
-<meta property="og:description" content="这篇博客将会教你如何零基础打造个人博客 Github Pages首先你需要有一个github账号，并创建&lt;Github‘s User name&gt;.github.io的项目,并保证该项目为空。 Hexo安装Node.jsNode.js下载页 选择长期支持版本即可">
+<meta property="og:description" content="安装ssh服务端sudo apt-get install openssh-server 显示已经安装 开启ssh服务sudo service ssh start 检查ssh是否启动，使用下面命令ps -e | grep ssh 如果输出中含有ssh-agent和sshd就说明成功了">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-24T04:22:16.000Z">
-<meta property="article:modified_time" content="2021-01-31T14:05:18.762Z">
+<meta property="article:published_time" content="2021-02-01T10:33:46.828Z">
+<meta property="article:modified_time" content="2021-02-01T11:29:54.217Z">
 <meta property="article:author" content="luozhexin">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="Github Pages">
+<meta property="article:tag" content="树莓派">
+<meta property="article:tag" content="远程控制">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://luozhexin.github.io/2021/01/24/hexo/">
+<link rel="canonical" href="https://luozhexin.github.io/2021/02/01/ssh/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>博客制作（一）用Hexo搭建个人博客 | onewall的博客</title>
+  <title>树莓派3b ubuntu18.04-mate ssh | onewall的博客</title>
   
 
 
@@ -162,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/24/hexo/">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/02/01/ssh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/profile.jpg">
@@ -175,7 +175,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          博客制作（一）用Hexo搭建个人博客
+          树莓派3b ubuntu18.04-mate ssh
         </h1>
 
         <div class="post-meta">
@@ -184,23 +184,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-01-24 12:22:16" itemprop="dateCreated datePublished" datetime="2021-01-24T12:22:16+08:00">2021-01-24</time>
+              <time title="创建时间：2021-02-01 18:33:46 / 修改时间：19:29:54" itemprop="dateCreated datePublished" datetime="2021-02-01T18:33:46+08:00">2021-02-01</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-31 22:05:18" itemprop="dateModified" datetime="2021-01-31T22:05:18+08:00">2021-01-31</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E5%88%B6%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">博客制作</span></a>
+                  <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
                 </span>
             </span>
 
@@ -215,34 +209,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这篇博客将会教你如何零基础打造个人博客</p>
-<h1 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h1><p>首先你需要有一个github账号，并创建&lt;Github‘s User name&gt;.github.io的项目,并保证该项目为空。</p>
-<h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node.js下载页</a></p>
-<p>选择长期支持版本即可</p>
+        <h1 id="安装ssh服务端"><a href="#安装ssh服务端" class="headerlink" title="安装ssh服务端"></a>安装ssh服务端</h1><p>sudo apt-get install openssh-server</p>
+<p>显示已经安装</p>
+<h1 id="开启ssh服务"><a href="#开启ssh服务" class="headerlink" title="开启ssh服务"></a>开启ssh服务</h1><p>sudo service ssh start</p>
+<h1 id="检查ssh是否启动，使用下面命令"><a href="#检查ssh是否启动，使用下面命令" class="headerlink" title="检查ssh是否启动，使用下面命令"></a>检查ssh是否启动，使用下面命令</h1><p>ps -e | grep ssh</p>
+<p>如果输出中含有ssh-agent和sshd就说明成功了 </p>
 <a id="more"></a>
 
-<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git下载页</a><br>按默认下载</p>
-<p>在桌面空白处点击右键，你就会发现右键菜单多了两个命令 <code>Git GUI here</code>和<code>Git bash here</code></p>
-<h2 id="制作博客"><a href="#制作博客" class="headerlink" title="制作博客"></a>制作博客</h2><p>在电脑任意盘符空白处，右键新建名为blog的文件夹，文件名最好不要是中文。</p>
-<p>右键<code>Git bash here</code>,输入（注意该过程不是在blog文件夹里）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>进入blog文件夹，右键<code>Git bash here</code>,输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-<p>浏览器中打开 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>  ,可以看到一个网页，说明Hexo博客已经成功在本地运行。</p>
-<p>按<code>Ctrl+c</code>，关闭</p>
-<h2 id="将博客部署到Github-Pages"><a href="#将博客部署到Github-Pages" class="headerlink" title="将博客部署到Github Pages"></a>将博客部署到Github Pages</h2><h3 id="安装发布插件"><a href="#安装发布插件" class="headerlink" title="安装发布插件"></a>安装发布插件</h3><p>在blog文件夹中命令行右键<code>Git bash here</code>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h3 id="修改Hexo站点的配置文件"><a href="#修改Hexo站点的配置文件" class="headerlink" title="修改Hexo站点的配置文件"></a>修改Hexo站点的配置文件</h3><p>在blog文件夹中，找到<code>_config.yml</code>文件。使用<code>Notepad++</code>或者<code>Sublime Text</code>（其他编辑软件也可）打开文本。</p>
-<p>找到url,修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: https:&#x2F;&#x2F;&lt;Github&#39;s User name&gt;.github.io&#x2F;</span><br></pre></td></tr></table></figure>
-<p>划到文件最底下，修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;&lt;Github‘s User name&gt;&#x2F;&lt;Github‘s User name&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>注意！请使用英文输入法，<code>:</code>和<code>：</code>是有区别的，其次在<code>:</code>的后面请留出一个空格，记得保存。</p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>在blog文件夹中命令行右键<code>Git bash here</code>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>按提示输入账号密码，等待远程部署。</p>
-<p>部署完毕后，在<code>https://&lt;Github&#39;s User name&gt;.github.io/</code>查看效果。</p>
-
+<h1 id="PC端SSH"><a href="#PC端SSH" class="headerlink" title="PC端SSH"></a>PC端SSH</h1><p>打开cmd，输入</p>
+<p><code>ssh 树莓派的用户名@树莓派ip地址</code></p>
+<p>显示<br><code>connection closed by 树莓派ip地址 port 22</code></p>
+<p>ssh失败</p>
+<h1 id="树莓派关闭防火墙"><a href="#树莓派关闭防火墙" class="headerlink" title="树莓派关闭防火墙"></a>树莓派关闭防火墙</h1><p>sudo ufw disable </p>
+<h1 id="重新SSH"><a href="#重新SSH" class="headerlink" title="重新SSH"></a>重新SSH</h1><p>仍失败，查看错误日志<code>/var/log/auth.log</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">error: Could not load host key: &#x2F;etc&#x2F;ssh&#x2F;ssh_host_rsa_key</span><br><span class="line">error: Could not load host key: &#x2F;etc&#x2F;ssh&#x2F;ssh_host_dsa_key</span><br><span class="line">error: Could not load host key: &#x2F;etc&#x2F;ssh&#x2F;XXX_key</span><br></pre></td></tr></table></figure>
+<p>原来是缺失key</p>
+<h1 id="查看key"><a href="#查看key" class="headerlink" title="查看key"></a>查看key</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;ssh</span><br><span class="line">ll</span><br></pre></td></tr></table></figure>
+<p>确实没有key，所以要生成key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ssh-keygen -t dsa -f &#x2F;etc&#x2F;ssh&#x2F;ssh_host_dsa_key</span><br><span class="line">sudo sh-keygen -t rsa -f &#x2F;etc&#x2F;ssh&#x2F;ssh_host_rsa_key</span><br><span class="line">&#x2F;&#x2F;密码默认空，直接按enter</span><br></pre></td></tr></table></figure>
+<p>重启树莓派</p>
+<h1 id="PC端SSH-1"><a href="#PC端SSH-1" class="headerlink" title="PC端SSH"></a>PC端SSH</h1><p>打开cmd，输入</p>
+<p><code>ssh 树莓派的用户名@树莓派ip地址</code></p>
+<p>点击确认即可，输入树莓派的密码，完成ssh远程控制</p>
+<h1 id="设置开机自启动ssh服务"><a href="#设置开机自启动ssh服务" class="headerlink" title="设置开机自启动ssh服务"></a>设置开机自启动ssh服务</h1><p>在开机自启动脚本在ubuntu18.04之前是在/etc/rc.local，不过18.04-mate已经没有这个文件</p>
+<p>可以直接通过指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable ssh</span><br><span class="line"> # 开机自动启动ssh命令</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -251,8 +242,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"># hexo</a>
-              <a href="/tags/Github-Pages/" rel="tag"># Github Pages</a>
+              <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag"># 树莓派</a>
+              <a href="/tags/%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/" rel="tag"># 远程控制</a>
           </div>
 
         
@@ -261,12 +252,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/23/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2021/01/31/ros5/" rel="prev" title="ROS笔记（五）ROS文件系统相关命令和ROS计算图">
+      <i class="fa fa-chevron-left"></i> ROS笔记（五）ROS文件系统相关命令和ROS计算图
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/01/24/next/" rel="next" title="博客制作（二）使用NexT主题美化博客界面">
-      博客制作（二）使用NexT主题美化博客界面 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/02/01/swap/" rel="next" title="树莓派3b ubuntu18.04-mate扩展swap空间">
+      树莓派3b ubuntu18.04-mate扩展swap空间 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -326,7 +317,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-Pages"><span class="nav-number">1.</span> <span class="nav-text">Github Pages</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo"><span class="nav-number">2.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="nav-number">2.1.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Git"><span class="nav-number">2.2.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.3.</span> <span class="nav-text">制作博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0Github-Pages"><span class="nav-number">2.4.</span> <span class="nav-text">将博客部署到Github Pages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8F%91%E5%B8%83%E6%8F%92%E4%BB%B6"><span class="nav-number">2.4.1.</span> <span class="nav-text">安装发布插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9Hexo%E7%AB%99%E7%82%B9%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.4.2.</span> <span class="nav-text">修改Hexo站点的配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">2.4.3.</span> <span class="nav-text">部署</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85ssh%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">1.</span> <span class="nav-text">安装ssh服务端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">开启ssh服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5ssh%E6%98%AF%E5%90%A6%E5%90%AF%E5%8A%A8%EF%BC%8C%E4%BD%BF%E7%94%A8%E4%B8%8B%E9%9D%A2%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">检查ssh是否启动，使用下面命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PC%E7%AB%AFSSH"><span class="nav-number">4.</span> <span class="nav-text">PC端SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">5.</span> <span class="nav-text">树莓派关闭防火墙</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E6%96%B0SSH"><span class="nav-number">6.</span> <span class="nav-text">重新SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bkey"><span class="nav-number">7.</span> <span class="nav-text">查看key</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PC%E7%AB%AFSSH-1"><span class="nav-number">8.</span> <span class="nav-text">PC端SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8ssh%E6%9C%8D%E5%8A%A1"><span class="nav-number">9.</span> <span class="nav-text">设置开机自启动ssh服务</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
