@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"luozhexin.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="linux文件系统123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657&#x2F; 根目录。一般根目录下只存放目录，在linux下有且只有一个根目录，所有的东西都是从这里开始。当在终端输入&#x2F;home，其实是先从&#x2F;（根目录）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux基础">
+<meta property="og:url" content="https://luozhexin.github.io/2021/03/02/linux/index.html">
+<meta property="og:site_name" content="onewall的博客">
+<meta property="og:description" content="linux文件系统123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657&#x2F; 根目录。一般根目录下只存放目录，在linux下有且只有一个根目录，所有的东西都是从这里开始。当在终端输入&#x2F;home，其实是先从&#x2F;（根目录）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-02T10:54:19.876Z">
+<meta property="article:modified_time" content="2021-03-04T07:51:14.139Z">
+<meta property="article:author" content="luozhexin">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://luozhexin.github.io/2021/03/02/linux/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>linux基础 | onewall的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">onewall的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/03/02/linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          linux基础
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-02 18:54:19" itemprop="dateCreated datePublished" datetime="2021-03-02T18:54:19+08:00">2021-03-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-04 15:51:14" itemprop="dateModified" datetime="2021-03-04T15:51:14+08:00">2021-03-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="linux文件系统"><a href="#linux文件系统" class="headerlink" title="linux文件系统"></a>linux文件系统</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&#x2F; 根目录。一般根目录下只存放目录，在linux下有且只有一个根目录，所有的东西都是从这里开始。当在终端输入&#x2F;home，其实是先从</span><br><span class="line">&#x2F;（根目录）开始，再进入到home目录。</span><br><span class="line"></span><br><span class="line">&#x2F;bin，&#x2F;usr&#x2F;bin 可执行二进制文件的目录，如常用的命令ls、tar、mv、cat等。</span><br><span class="line"></span><br><span class="line">&#x2F;boot 存放linux系统启动时用到的一些文件，如linux的内核文件：&#x2F;boot&#x2F;vmliunz，系统引导管理器：&#x2F;boot&#x2F;grub</span><br><span class="line"></span><br><span class="line">&#x2F;dev 存放linux系统下的设备文件，访问该目录下的某个文件，相当于访问某个设备，常用的是挂载光驱mount &#x2F;dev&#x2F;cdrom&#x2F;mnt</span><br><span class="line"></span><br><span class="line">&#x2F;etc 系统配置文件存放的目录，不建议在此目录下存放可执行文件，重要的配置文件有，&#x2F;etc&#x2F;inittab，&#x2F;etc&#x2F;fstab，&#x2F;etc&#x2F;init.d,&#x2F;etc&#x2F;X11,</span><br><span class="line">&#x2F;etc&#x2F;sysconfig,&#x2F;etc&#x2F;xinetd.d</span><br><span class="line"></span><br><span class="line">&#x2F;home 系统默认的用户家目录，新增用户账号时，用户的家目录都存放在此目录下。</span><br><span class="line"></span><br><span class="line">~ 表示当前用户的家目录，~edu 表示用户edu的家目录。</span><br><span class="line"></span><br><span class="line">&#x2F;lib，&#x2F;usr&#x2F;lib，&#x2F;usr&#x2F;local&#x2F;lib 系统使用的库函数的目录，程序在执行过程中，需要调用一些额外的参数时需要函数库的协助。</span><br><span class="line"></span><br><span class="line">&#x2F;lost+found 系统异常产生错误时，会将一些遗失的片段放置于此目录下</span><br><span class="line"></span><br><span class="line">&#x2F;mnt，&#x2F;media 光盘默认挂载点，通常光盘挂载于&#x2F;mnt&#x2F;cdrom 下，也不一定，可以选择任意位置进行挂载。</span><br><span class="line"></span><br><span class="line">&#x2F;opt 给主机额外安装软件所摆放的目录</span><br><span class="line"></span><br><span class="line">&#x2F;proc 此目录的数据都在内存中，如系统核心，外部设备，网络状态，由于数据都存放于内存中，所以不占用磁盘空间，</span><br><span class="line">比较重要的文件有：&#x2F;proc&#x2F;cpuinfo,&#x2F;porc&#x2F;interrupts,&#x2F;proc&#x2F;dma,&#x2F;proc&#x2F;ioports,&#x2F;proc&#x2F;net&#x2F;*等</span><br><span class="line"></span><br><span class="line">&#x2F;root 系统管理员root的家目录</span><br><span class="line"></span><br><span class="line">&#x2F;sbin，&#x2F;usr&#x2F;sbin，&#x2F;usr&#x2F;local&#x2F;sbin 防止管理员使用的可执行命令，如fdisk，shutdown，mount等。</span><br><span class="line">于&#x2F;bin不同的是，这几个目录是给系统管理员root使用的命令，一般用户只能查看而不能设置和使用</span><br><span class="line"></span><br><span class="line">&#x2F;tmp 一般用户或正在执行的程序临时存放文件的目录，任何人都可以访问，重要数据不可放置在此目录下</span><br><span class="line"></span><br><span class="line">&#x2F;srv 服务启动之后需要访问的数据目录，如www服务器需要访问的网页数据存放在&#x2F;srv&#x2F;www 内</span><br><span class="line"></span><br><span class="line">&#x2F;usr 应用程序存放目录</span><br><span class="line"></span><br><span class="line">&#x2F;usr&#x2F;bin 存放应用程序</span><br><span class="line"></span><br><span class="line">&#x2F;usr&#x2F;share 存放共享数据</span><br><span class="line"></span><br><span class="line">&#x2F;usr&#x2F;lib 存放不能直接运行，却是许多程序运行所必需的一些库函数文件</span><br><span class="line"></span><br><span class="line">&#x2F;usr&#x2F;local 存放软件升级包</span><br><span class="line"></span><br><span class="line">&#x2F;usr&#x2F;share&#x2F;doc 系统说明文件存放目录</span><br><span class="line"></span><br><span class="line">&#x2F;usr&#x2F;sharc&#x2F;man 程序说明文件存放目录</span><br><span class="line"></span><br><span class="line">&#x2F;var 放置系统执行过程中经常变化的文件</span><br><span class="line"></span><br><span class="line">&#x2F;var&#x2F;log 随时更改的日志文件</span><br><span class="line"></span><br><span class="line">&#x2F;var&#x2F;spool&#x2F;mail 邮件存放的目录</span><br><span class="line"></span><br><span class="line">&#x2F;var&#x2F;run 程序或服务启动后，其pid存放在该目录下。</span><br></pre></td></tr></table></figure>
+<h1 id="文件及文件夹查看"><a href="#文件及文件夹查看" class="headerlink" title="文件及文件夹查看"></a>文件及文件夹查看</h1><p>ls -a 查看所有文件及文件夹，包括隐藏文件和目录</p>
+<p>ls -l 以列表形式查看所有文件和目录</p>
+<p>ll 等同于 ls -al 等同于以上两个命令的结合</p>
+<h1 id="切换目录"><a href="#切换目录" class="headerlink" title="切换目录"></a>切换目录</h1><p>cd 切换到当前用户的主目录（home/用户目录）</p>
+<p>cd ~ 切换到当前用户的主目录（home/用户目录）</p>
+<p>cd . 切换到当前目录</p>
+<p>cd .. 切换到上级目录</p>
+<p>cd - 可进入上次所在的目录</p>
+<p>cd / 切换到系统根目录/</p>
+<p>如果路径是从根路径开始的，则路径的前面需要加上 “ / ”，如 “ /mnt ”，通常进入某个目录里的文件夹，前面不用加 “ / ”。</p>
+<h1 id="文件夹操作"><a href="#文件夹操作" class="headerlink" title="文件夹操作"></a>文件夹操作</h1><p>rm -f 才能删除文件夹，而且使用命令行是永久性删除，而使用GUI是移到回收站可恢复的。</p>
+<h1 id="文件复制"><a href="#文件复制" class="headerlink" title="文件复制"></a>文件复制</h1><p>cp test.txt .  ‘.’ 表示当前路径</p>
+<p>cp test.txt hello.txt 将test复制并命名为hello</p>
+<p>cp -r 复制文件夹 -r表示文件夹</p>
+<p>cp test/<em>.md Downloads/ ‘</em>‘表示模糊匹配</p>
+<h1 id="文件剪切"><a href="#文件剪切" class="headerlink" title="文件剪切"></a>文件剪切</h1><p>mv test.txt Downloads/ </p>
+<p>mv test.txt a.txt 重命名</p>
+<p>mv test/* Downloads </p>
+<h1 id="输出、重定向"><a href="#输出、重定向" class="headerlink" title="输出、重定向"></a>输出、重定向</h1><p>‘echo’ 控制台输出</p>
+<p>echo “hello world”</p>
+<p>‘&gt;’重定向符号</p>
+<p>Linux允许将命令执行结果重定向到一个文件，本应显示在终端上的内容保存到指定文件中。</p>
+<p>echo “hello world” &gt; test.txt</p>
+<p>ls &gt; test.txt</p>
+<p>test.txt 如果不存在，则创建，存在则覆盖其内容</p>
+<p>注意：&gt;输出重定向会覆盖原来的内容，&gt;&gt;输出重定向则会追加到文件的尾部</p>
+<p>echo “hello” &gt;&gt; test.txt</p>
+<h1 id="cat-查看-amp-合并文件内容"><a href="#cat-查看-amp-合并文件内容" class="headerlink" title="cat 查看&amp;合并文件内容"></a>cat 查看&amp;合并文件内容</h1><p>cat xxx.py 可以用来快速查看某个文件内容，输出到控制台</p>
+<p>cat test.txt &gt;&gt; haha.txt 将test.txt的内容追加到haha.txt中</p>
+<p>cat 1.txt 2.txt &gt; 1_2.txt将1.txt 2.txt内容合并到1_2.txt中</p>
+<h1 id="tar-归档管理"><a href="#tar-归档管理" class="headerlink" title="tar 归档管理"></a>tar 归档管理</h1><p>tar [参数] 打包文件名 文件</p>
+<p>打包并压缩</p>
+<p>打包指定目录或文件<code>tar -czvf xxx.tar.gz my-file my-dir</code></p>
+<p>解压缩包</p>
+<p>解包到指定目录：<code>tar -xzvf xxx.tar.gz -C my-dir</code> （需要先创建my-dir目录）</p>
+<h1 id="zip-文件压缩"><a href="#zip-文件压缩" class="headerlink" title="zip 文件压缩"></a>zip 文件压缩</h1><p>压缩文件：zip [-r] 目标文件(没有扩展名) 源文件</p>
+<p>文件：zip bak * 当前目录所有文件，也可以指定文件</p>
+<p>文件夹：zip -r bak * 当前目录所有文件&amp;目录递归 -r表示递归 不然仅仅压缩了一个空的文件夹</p>
+<p>解压文件：unzip -d 解压后目录文件 压缩文件</p>
+<p>解压到指定目录：unzip -d ./target_dir bak.zip</p>
+<p>解压到当前目录：unzip bak.zip</p>
+<h1 id="wget-文件下载"><a href="#wget-文件下载" class="headerlink" title="wget 文件下载"></a>wget 文件下载</h1><p>下载普通文件</p>
+<p><code>wget http://p1.qhimgs4.com/t01ce0387e64e3428ca.jpg</code></p>
+<p>以指定文件名保存文件</p>
+<p><code>wget -O girl.jpg http://p1.qhimgs4.com/t01ce0387e64e3428ca.jpg</code></p>
+<p>断点续传</p>
+<p><code>wget -c http://p1.qhimgs4.com/t01ce0387e64e3428ca.jpg</code></p>
+<h1 id="tree-目录树状结构"><a href="#tree-目录树状结构" class="headerlink" title="tree 目录树状结构"></a>tree 目录树状结构</h1><p>使用<code>tree</code>命令可以查看指定目录的树状结构</p>
+<h1 id="which-查看命令位置"><a href="#which-查看命令位置" class="headerlink" title="which 查看命令位置"></a>which 查看命令位置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">poplar@PoplarTang:~&#x2F;Lesson$ which python</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;python</span><br><span class="line">poplar@PoplarTang:~&#x2F;Lesson$ which ls</span><br><span class="line">&#x2F;bin&#x2F;ls</span><br></pre></td></tr></table></figure>
+<h1 id="ifconfig-查看ip地址"><a href="#ifconfig-查看ip地址" class="headerlink" title="ifconfig 查看ip地址"></a>ifconfig 查看ip地址</h1><h1 id="ping-测试网络是否联通"><a href="#ping-测试网络是否联通" class="headerlink" title="ping 测试网络是否联通"></a>ping 测试网络是否联通</h1><h1 id="ssh-连接远程电脑"><a href="#ssh-连接远程电脑" class="headerlink" title="ssh 连接远程电脑"></a>ssh 连接远程电脑</h1><p>如果远程电脑是新装电脑，有可能会因为ssh服务证书问题而无法连接，可以通过在远程电脑上重装ssh服务解决。</p>
+<ol>
+<li><p>重装ssh服务，生成证书</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove openssh-server</span><br><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure></li>
+<li><p>重启ssh服务<br><code>sudo service ssh restart</code></p>
+</li>
+<li><p>检查sshd服务是否存活<br><code>sudo service ssh status</code></p>
+</li>
+<li><p>推出ssh<br><code>exit</code></p>
+</li>
+</ol>
+<h1 id="chmod-修改文件权限"><a href="#chmod-修改文件权限" class="headerlink" title="chmod 修改文件权限"></a>chmod 修改文件权限</h1><p>使用<code>ls -l </code>可以查看文件和目录的权限</p>
+<p>第一个 ‘-‘表示文件，’d’表示文件夹</p>
+<p>字母法权限修改：rwx</p>
+<p>chmod u/g/o/a +/-/= rwx 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">u	user 表示该文件的所有者</span><br><span class="line">g	group 表示与该文件的所有者属于同一组( group )者，即用户组</span><br><span class="line">o	other 表示其他以外的人</span><br><span class="line">a	all 表示这三者皆是</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+	增加权限</span><br><span class="line">-	撤销权限</span><br><span class="line">&#x3D;	设定权限</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r	read 表示可读取，对于一个目录，如果没有r权限，那么就意味着不能通过ls查看这个目录的内容。</span><br><span class="line">w	write 表示可写入，对于一个目录，如果没有w权限，那么就意味着不能在目录下创建新的文件。</span><br><span class="line">x	excute 表示可执行，对于一个目录，如果没有x权限，那么就意味着不能通过cd进入这个目录。</span><br></pre></td></tr></table></figure>
+<p>数字法权限修改：421</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r	读取权限，数字代号为 &quot;4&quot;</span><br><span class="line">w	写入权限，数字代号为 &quot;2&quot;</span><br><span class="line">x	执行权限，数字代号为 &quot;1&quot;</span><br><span class="line">-	不具任何权限，数字代号为 &quot;0&quot;</span><br></pre></td></tr></table></figure>
+<p>如执行：chmod u=rwx,g=rx,o=r filename 就等同于：chmod u=7,g=5,o=4 filename</p>
+<h1 id="系统信息命令"><a href="#系统信息命令" class="headerlink" title="系统信息命令"></a>系统信息命令</h1><p>查看系统版本</p>
+<p>发行版本号</p>
+<p><code>lsb_release -a</code></p>
+<p>内核版本及系统位数</p>
+<p><code>uname -a</code></p>
+<p>内核版本及gcc版本</p>
+<p><code>cat /proc/version</code></p>
+<p>查看硬件信息</p>
+<p>cpu信息</p>
+<p><code>cat /proc/cpuinfo or lscpu</code></p>
+<p>内存信息</p>
+<p><code>sudo dmidecode -t memory</code></p>
+<p>运行时信息</p>
+<p><code>top</code>实时CPU&amp;内存使用情况(可以查看pid号，user，和哪个命令占用)</p>
+<p><code>free</code>当前内存占用情况</p>
+<p><code>ps -aux</code>查看当前进程状态（CPU、内存占用、开启时间）</p>
+<p><code>kill</code>根据进程pid杀死指定进程，可以配合参数-9强制杀死</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/19/ubuntuclash/" rel="prev" title="clash for linux 安装使用">
+      <i class="fa fa-chevron-left"></i> clash for linux 安装使用
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">linux文件系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9F%A5%E7%9C%8B"><span class="nav-number">2.</span> <span class="nav-text">文件及文件夹查看</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text">切换目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">文件夹操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">文件复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%89%AA%E5%88%87"><span class="nav-number">6.</span> <span class="nav-text">文件剪切</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E3%80%81%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">7.</span> <span class="nav-text">输出、重定向</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cat-%E6%9F%A5%E7%9C%8B-amp-%E5%90%88%E5%B9%B6%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="nav-number">8.</span> <span class="nav-text">cat 查看&amp;合并文件内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tar-%E5%BD%92%E6%A1%A3%E7%AE%A1%E7%90%86"><span class="nav-number">9.</span> <span class="nav-text">tar 归档管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zip-%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9"><span class="nav-number">10.</span> <span class="nav-text">zip 文件压缩</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wget-%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="nav-number">11.</span> <span class="nav-text">wget 文件下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tree-%E7%9B%AE%E5%BD%95%E6%A0%91%E7%8A%B6%E7%BB%93%E6%9E%84"><span class="nav-number">12.</span> <span class="nav-text">tree 目录树状结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#which-%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4%E4%BD%8D%E7%BD%AE"><span class="nav-number">13.</span> <span class="nav-text">which 查看命令位置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ifconfig-%E6%9F%A5%E7%9C%8Bip%E5%9C%B0%E5%9D%80"><span class="nav-number">14.</span> <span class="nav-text">ifconfig 查看ip地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ping-%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E6%98%AF%E5%90%A6%E8%81%94%E9%80%9A"><span class="nav-number">15.</span> <span class="nav-text">ping 测试网络是否联通</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ssh-%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91"><span class="nav-number">16.</span> <span class="nav-text">ssh 连接远程电脑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chmod-%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="nav-number">17.</span> <span class="nav-text">chmod 修改文件权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E5%91%BD%E4%BB%A4"><span class="nav-number">18.</span> <span class="nav-text">系统信息命令</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="luozhexin"
+      src="/images/profile.jpg">
+  <p class="site-author-name" itemprop="name">luozhexin</p>
+  <div class="site-description" itemprop="description">怕什么真理无穷，进一寸有一寸的欢喜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/luozhexin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;luozhexin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:loswhite242@gmail.com" title="E-Mail → mailto:loswhite242@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">luozhexin</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
