@@ -157,6 +157,637 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/04/14/stmyizhi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/14/stmyizhi/" class="post-title-link" itemprop="url">stm32移植笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-14 23:06:31 / 修改时间：23:13:35" itemprop="dateCreated datePublished" datetime="2021-04-14T23:06:31+08:00">2021-04-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/STM32/" itemprop="url" rel="index"><span itemprop="name">STM32</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="移植"><a href="#移植" class="headerlink" title="移植"></a>移植</h1><p>参考文章：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wwt18811707971/article/details/83043257?utm_source=app&amp;app_version=4.5.8">https://blog.csdn.net/wwt18811707971/article/details/83043257?utm_source=app&amp;app_version=4.5.8</a></p>
+<p>对于移植STM32F103VET6的代码到STM32F103RET6（12M晶振），步骤是1.1，2.1</p>
+<h1 id="在keil下编译，已经定义好的代码提示未定义的解决办法"><a href="#在keil下编译，已经定义好的代码提示未定义的解决办法" class="headerlink" title="在keil下编译，已经定义好的代码提示未定义的解决办法"></a>在keil下编译，已经定义好的代码提示未定义的解决办法</h1><p>参考文章：<br><a target="_blank" rel="noopener" href="https://allen5g.blog.csdn.net/article/details/92842050">https://allen5g.blog.csdn.net/article/details/92842050</a></p>
+<p>编译出现如下错误：<br>…\main.c(24): error: #20: identifier “TIM_TimeBaseInitTypeDef” is undefined<br>…\main.c: TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;<br>…\main.c: ^<br>…\main.c(47): error: #20: identifier “TIM_CounterMode_Up” is undefined<br>…\main.c: TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;</p>
+<p>所有提示未定义的代码都已经确定定义过，但为什么会出现这样的情况？</p>
+<p>最后发现，在stm32f10x_conf.h 里面包含stm32f10x_tim.h头文件的代码被注释掉了，重新包含这个头文件就把上面的问题解决了。</p>
+<p>如果还有报错，勾选C99。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/04/14/nvidaubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/14/nvidaubuntu/" class="post-title-link" itemprop="url">解决安装NVIDIA驱动后不能正常安装ubuntu的问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-14 22:50:18 / 修改时间：23:05:07" itemprop="dateCreated datePublished" datetime="2021-04-14T22:50:18+08:00">2021-04-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>当电脑安装了NVDIA驱动后，在安装ubuntu的时候出现画面卡住，无法正常安装。</p>
+<h1 id="卡死在logo界面"><a href="#卡死在logo界面" class="headerlink" title="卡死在logo界面"></a>卡死在logo界面</h1><p>在grub引导界面，用方向键选到install ubuntu，不要按回车，而是按e，进入参数配置编辑界面；</p>
+<p>找到quiet splash，在后面空一格再加上<br><code>acpi_osi=linux nomodeset</code></p>
+<p>然后按F10即可进入正常的安装流程</p>
+<p>（这种方法是只使用核显，该方法不太好，如果你要使用英伟达显卡加速深度学习训练）</p>
+<h1 id="编辑grub文件"><a href="#编辑grub文件" class="headerlink" title="编辑grub文件"></a>编辑grub文件</h1><p>在上述步骤完成后，进入ubuntu图形界面时，执行指令<br><code>sudo gedit /etc/default/grub </code><br>找到quiet splash，在后面空一格再加上<br><code>acpi_osi=linux nomodeset</code></p>
+<p>保存后，更新grub配置：<br><code>sudo update-grub</code></p>
+<p>参考文章：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ysy950803/article/details/78507892?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161841262216780264033414%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=161841262216780264033414&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-78507892.first_rank_v2_pc_rank_v29&amp;utm_term=%E8%A7%A3%E5%86%B3nvidia%E6%98%BE%E5%8D%A1%E7%9A%84%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Ubuntu">https://blog.csdn.net/ysy950803/article/details/78507892?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161841262216780264033414%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=161841262216780264033414&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-78507892.first_rank_v2_pc_rank_v29&amp;utm_term=%E8%A7%A3%E5%86%B3nvidia%E6%98%BE%E5%8D%A1%E7%9A%84%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Ubuntu</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sherpahu/article/details/89792000?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161841269816780357232913%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=161841269816780357232913&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-89792000.first_rank_v2_pc_rank_v29&amp;utm_term=ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91">https://blog.csdn.net/sherpahu/article/details/89792000?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161841269816780357232913%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=161841269816780357232913&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-89792000.first_rank_v2_pc_rank_v29&amp;utm_term=ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/03/10/rosparam/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/10/rosparam/" class="post-title-link" itemprop="url">rosparam</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-10 12:20:37 / 修改时间：12:35:02" itemprop="dateCreated datePublished" datetime="2021-03-10T12:20:37+08:00">2021-03-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>参数服务器在ROS中主要用于实现不同节点之间的数据共享。参数服务器相当于是独立于所有节点的一个公共容器，可以将数据存储在该容器中，被不同的节点调用，当然不同的节点也可以往其中存储数据，关于参数服务器的典型应用场景如下:</p>
+<p>导航实现时，会进行路径规划，比如: 全局路径规划，设计一个从出发点到目标点的大致路径。本地路径规划，会根据当前路况生成时时的行进路径</p>
+<p>上述场景中，全局路径规划和本地路径规划时，就会使用到参数服务器：</p>
+<p>路径规划时，需要参考小车的尺寸，我们可以将这些尺寸信息存储到参数服务器，全局路径规划节点与本地路径规划节点都可以从参数服务器中调用这些参数<br>参数服务器，一般适用于存在数据共享的一些应用场景。</p>
+<h1 id="cpp实现"><a href="#cpp实现" class="headerlink" title="cpp实现"></a>cpp实现</h1><h2 id="参数服务器新增-修改-参数"><a href="#参数服务器新增-修改-参数" class="headerlink" title="参数服务器新增(修改)参数"></a>参数服务器新增(修改)参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    参数服务器操作之新增与修改(二者API一样)_C++实现:</span><br><span class="line">    在 roscpp 中提供了两套 API 实现参数操作</span><br><span class="line">    ros::NodeHandle</span><br><span class="line">        setParam(&quot;键&quot;,值)</span><br><span class="line">    ros::param</span><br><span class="line">        set(&quot;键&quot;,&quot;值&quot;)</span><br><span class="line"></span><br><span class="line">    示例:分别设置整形、浮点、字符串、bool、列表、字典等类型参数</span><br><span class="line">        修改(相同的键，不同的值)</span><br><span class="line"></span><br><span class="line">*&#x2F;</span><br><span class="line">#include &quot;ros&#x2F;ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char  *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;* code *&#x2F;</span><br><span class="line">    ros::init(argc,argv,&quot;set_param_c&quot;);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    nh.setParam(&quot;type&quot;,&quot;xiaohuang&quot;);</span><br><span class="line">    nh.setParam(&quot;radius&quot;,0.15);</span><br><span class="line">    ros::param::set(&quot;type_&quot;,&quot;xiaobai&quot;);</span><br><span class="line">    ros::param::set(&quot;radius_param&quot;,0.15);</span><br><span class="line"></span><br><span class="line">    nh.setParam(&quot;radius&quot;,0.2);</span><br><span class="line">    ros::param::set(&quot;radius_param&quot;,0.2);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="参数服务器获取参数"><a href="#参数服务器获取参数" class="headerlink" title="参数服务器获取参数"></a>参数服务器获取参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    参数服务器操作之查询_C++实现:</span><br><span class="line">    在 roscpp 中提供了两套 API 实现参数操作</span><br><span class="line">    ros::NodeHandle</span><br><span class="line"></span><br><span class="line">        param(键,默认值) </span><br><span class="line">            存在，返回对应结果，否则返回默认值</span><br><span class="line"></span><br><span class="line">        getParam(键,存储结果的变量)</span><br><span class="line">            存在,返回 true,且将值赋值给参数2</span><br><span class="line">            若果键不存在，那么返回值为 false，且不为参数2赋值</span><br><span class="line"></span><br><span class="line">        getParamCached键,存储结果的变量)--提高变量获取效率</span><br><span class="line">            存在,返回 true,且将值赋值给参数2</span><br><span class="line">            若果键不存在，那么返回值为 false，且不为参数2赋值</span><br><span class="line"></span><br><span class="line">        getParamNames(std::vector&lt;std::string&gt;)</span><br><span class="line">            获取所有的键,并存储在参数 vector 中 </span><br><span class="line"></span><br><span class="line">        hasParam(键)</span><br><span class="line">            是否包含某个键，存在返回 true，否则返回 false</span><br><span class="line"></span><br><span class="line">        searchParam(参数1，参数2)</span><br><span class="line">            搜索键，参数1是被搜索的键，参数2存储搜索结果的变量</span><br><span class="line"></span><br><span class="line">    ros::param ----- 与 NodeHandle 类似</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">*&#x2F;</span><br><span class="line">#include &quot;ros&#x2F;ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char  *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;* code *&#x2F;</span><br><span class="line">    ros::init(argc,argv,&quot;get_param_c&quot;);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    double radius&#x3D;nh.param(&quot;radius&quot;,0.5);</span><br><span class="line">    ROS_INFO(&quot;radius&#x3D;%.2f&quot;,radius);</span><br><span class="line"></span><br><span class="line">    double radius2&#x3D;0.0;</span><br><span class="line">    bool result&#x3D;nh.getParam(&quot;radius&quot;,radius2);</span><br><span class="line">    if (result)</span><br><span class="line">    &#123;</span><br><span class="line">        ROS_INFO(&quot;radius is %.2f&quot;,radius2);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        ROS_INFO(&quot;radius not exist&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    std::vector&lt;std::string&gt; names;</span><br><span class="line">    nh.getParamNames(names);</span><br><span class="line">    for (auto &amp;&amp;name : names)</span><br><span class="line">    &#123;</span><br><span class="line">        ROS_INFO(&quot;paramName is %s&quot;,name.c_str());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bool flag1&#x3D;nh.hasParam(&quot;radius&quot;);</span><br><span class="line">    bool flag2&#x3D;nh.hasParam(&quot;radiusxxx&quot;);</span><br><span class="line">    ROS_INFO(&quot;radius is exist? %d&quot;,flag1);</span><br><span class="line">    ROS_INFO(&quot;radiusxxx is exist? %d&quot;,flag2);</span><br><span class="line"></span><br><span class="line">    std::string key;</span><br><span class="line">    nh.searchParam(&quot;radius&quot;,key);</span><br><span class="line">    ROS_INFO(&quot;result is %s&quot;,key.c_str());</span><br><span class="line"></span><br><span class="line">    double radius_param&#x3D;ros::param::param(&quot;radius&quot;,100.5);</span><br><span class="line">    ROS_INFO(&quot;radius_param &#x3D;%.2f&quot;,radius_param);</span><br><span class="line"></span><br><span class="line">    std::vector&lt;std::string&gt; names_param;</span><br><span class="line">    ros::param::getParamNames(names_param);</span><br><span class="line">    for (auto &amp;&amp;name_param : names_param)</span><br><span class="line">    &#123;</span><br><span class="line">        ROS_INFO(&quot;key:%s&quot;,name_param.c_str());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参数服务器删除参数"><a href="#参数服务器删除参数" class="headerlink" title="参数服务器删除参数"></a>参数服务器删除参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* </span><br><span class="line">    参数服务器操作之删除_C++实现:</span><br><span class="line"></span><br><span class="line">    ros::NodeHandle</span><br><span class="line">        deleteParam(&quot;键&quot;)</span><br><span class="line">        根据键删除参数，删除成功，返回 true，否则(参数不存在)，返回 false</span><br><span class="line"></span><br><span class="line">    ros::param</span><br><span class="line">        del(&quot;键&quot;)</span><br><span class="line">        根据键删除参数，删除成功，返回 true，否则(参数不存在)，返回 false</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">#include &quot;ros&#x2F;ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char  *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;* code *&#x2F;</span><br><span class="line">    ros::init(argc,argv,&quot;param_del_c&quot;);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    bool flag1&#x3D;nh.deleteParam(&quot;radius&quot;);</span><br><span class="line">    if (flag1)&#123;</span><br><span class="line">        ROS_INFO(&quot;delet succes&quot;);</span><br><span class="line">    &#125; else&#123;</span><br><span class="line">        ROS_INFO(&quot;delet fault&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bool flag2&#x3D;ros::param::del(&quot;radius_param&quot;);</span><br><span class="line">    if (flag2)&#123;</span><br><span class="line">        ROS_INFO(&quot;delet succes&quot;);</span><br><span class="line">    &#125; else&#123;</span><br><span class="line">        ROS_INFO(&quot;delet fault&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h1><h2 id="参数服务器新增-修改-参数-1"><a href="#参数服务器新增-修改-参数-1" class="headerlink" title="参数服务器新增(修改)参数"></a>参数服务器新增(修改)参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#! &#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">#coding&#x3D;utf-8</span><br><span class="line">import rospy</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    rospy.init_node(&quot;param_set_p&quot;)</span><br><span class="line">    rospy.set_param(&quot;type_p&quot;,&quot;xiaohuache&quot;)</span><br><span class="line">    rospy.set_param(&quot;radius_p&quot;,10)</span><br><span class="line"></span><br><span class="line">    rospy.set_param(&quot;radius_p&quot;,20)</span><br><span class="line"></span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+<h2 id="参数服务器获取参数-1"><a href="#参数服务器获取参数-1" class="headerlink" title="参数服务器获取参数"></a>参数服务器获取参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#! &#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">    参数服务器操作之查询_Python实现:    </span><br><span class="line">        get_param(键,默认值)</span><br><span class="line">            当键存在时，返回对应的值，如果不存在返回默认值</span><br><span class="line">        get_param_cached</span><br><span class="line">        get_param_names</span><br><span class="line">        has_param</span><br><span class="line">        search_param</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">import rospy</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    rospy.init_node(&quot;param_get_p&quot;)</span><br><span class="line">    radius&#x3D;rospy.get_param(&quot;radius_p&quot;,15)</span><br><span class="line">    radius1&#x3D;rospy.get_param(&quot;radius_p_&quot;,15)</span><br><span class="line">    rospy.loginfo(&quot;radius is %.2f&quot;,radius)</span><br><span class="line">    rospy.loginfo(&quot;radius is %.2f&quot;,radius1)</span><br><span class="line"></span><br><span class="line">    names&#x3D;rospy.get_param_names()</span><br><span class="line">    for name in names:</span><br><span class="line">        rospy.loginfo(&quot;param name is %s&quot;,name)</span><br><span class="line"></span><br><span class="line">    flag1&#x3D;rospy.has_param(&quot;radius_p&quot;)</span><br><span class="line">    if flag1:</span><br><span class="line">        rospy.loginfo(&quot;radius_p is exist&quot;)</span><br><span class="line">    else:</span><br><span class="line">        rospy.loginfo(&quot;radius_p not exist&quot;)</span><br><span class="line"></span><br><span class="line">    key&#x3D;rospy.search_param(&quot;radius_p&quot;)</span><br><span class="line">    rospy.loginfo(&quot;key &#x3D;%s&quot;,key)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+<h2 id="参数服务器删除参数-1"><a href="#参数服务器删除参数-1" class="headerlink" title="参数服务器删除参数"></a>参数服务器删除参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#! &#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">    参数服务器操作之删除_Python实现:</span><br><span class="line">    rospy.delete_param(&quot;键&quot;)</span><br><span class="line">    键存在时，可以删除成功，键不存在时，会抛出异常</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">import rospy</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    rospy.init_node(&quot;param_del_p&quot;)</span><br><span class="line">    try:</span><br><span class="line">        rospy.delete_param(&quot;type_p&quot;)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        rospy.loginfo(&quot;deleted param is not exist&quot;)</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/03/09/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/09/git/" class="post-title-link" itemprop="url">git</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-09 17:16:04" itemprop="dateCreated datePublished" datetime="2021-03-09T17:16:04+08:00">2021-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-10 12:44:22" itemprop="dateModified" datetime="2021-03-10T12:44:22+08:00">2021-03-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="新工程"><a href="#新工程" class="headerlink" title="新工程"></a>新工程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git init </span><br><span class="line">git add . &#x2F;&#x2F;.表示全部文件</span><br><span class="line">git commit -m &quot;frist commit&quot;</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;usrname&#x2F;repositoriesName.git</span><br><span class="line">git push -u origin master</span><br><span class="line">或者 git branch -M main</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+<h1 id="再次提交"><a href="#再次提交" class="headerlink" title="再次提交"></a>再次提交</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add . </span><br><span class="line">git commit -m &quot;commit&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/03/09/rossrv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/09/rossrv/" class="post-title-link" itemprop="url">rossrv</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-09 16:40:43" itemprop="dateCreated datePublished" datetime="2021-03-09T16:40:43+08:00">2021-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-10 12:35:22" itemprop="dateModified" datetime="2021-03-10T12:35:22+08:00">2021-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>服务通信也是ROS中一种极其常用的通信模式，服务通信是基于请求响应模式的，是一种应答机制。<br>也即: 一个节点A向另一个节点B发送请求，B接收处理请求并产生响应结果返回给A。</p>
+<h1 id="自定义srv"><a href="#自定义srv" class="headerlink" title="自定义srv"></a>自定义srv</h1><p>服务通信中，数据分成两部分，请求与响应，在 srv 文件中请求和响应使用—分割，具体实现如下:</p>
+<p>功能包下新建 srv 目录，添加 xxx.srv 文件，内容:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 客户端请求时发送的两个数字</span><br><span class="line">int32 num1</span><br><span class="line">int32 num2</span><br><span class="line">---</span><br><span class="line"># 服务器响应发送的数据</span><br><span class="line">int32 sum</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>编辑配置文件</p>
+<p>package.xml中添加编译依赖与执行依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;build_depend&gt;message_generation&lt;&#x2F;build_depend&gt;</span><br><span class="line"></span><br><span class="line">&lt;exec_depend&gt;message_runtime&lt;&#x2F;exec_depend&gt;</span><br></pre></td></tr></table></figure>
+<p>CMakeLists.txt编辑 srv 相关配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">find_package(catkin REQUIRED COMPONENTS</span><br><span class="line">  roscpp</span><br><span class="line">  rospy</span><br><span class="line">  std_msgs</span><br><span class="line">  message_generation</span><br><span class="line">)</span><br><span class="line"># 需要加入 message_generation,必须有 std_msgs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">add_service_files(</span><br><span class="line">  FILES</span><br><span class="line">  AddInts.srv</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">generate_messages(</span><br><span class="line">  DEPENDENCIES</span><br><span class="line">  std_msgs</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="cpp实现"><a href="#cpp实现" class="headerlink" title="cpp实现"></a>cpp实现</h1><h2 id="vscode配置"><a href="#vscode配置" class="headerlink" title="vscode配置"></a>vscode配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;includePath&quot;: [</span><br><span class="line">              &quot;&#x2F;opt&#x2F;ros&#x2F;noetic&#x2F;include&#x2F;**&quot;,</span><br><span class="line">              &quot;&#x2F;usr&#x2F;include&#x2F;**&quot;,</span><br><span class="line">              &quot;&#x2F;xxx&#x2F;yyy工作空间&#x2F;devel&#x2F;include&#x2F;**&quot; &#x2F;&#x2F;配置 head 文件的路径 </span><br><span class="line">          ],</span><br></pre></td></tr></table></figure>
+<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    需求: </span><br><span class="line">        编写两个节点实现服务通信，客户端节点需要提交两个整数到服务器</span><br><span class="line">        服务器需要解析客户端提交的数据，相加后，将结果响应回客户端，</span><br><span class="line">        客户端再解析</span><br><span class="line"></span><br><span class="line">    服务器实现:</span><br><span class="line">        1.包含头文件</span><br><span class="line">        2.初始化 ROS 节点</span><br><span class="line">        3.创建 ROS 句柄</span><br><span class="line">        4.创建 服务 对象</span><br><span class="line">        5.回调函数处理请求并产生响应</span><br><span class="line">        6.由于请求有多个，需要调用 ros::spin()</span><br><span class="line"></span><br><span class="line">*&#x2F;</span><br><span class="line">#include &quot;ros&#x2F;ros.h&quot;</span><br><span class="line">#include &quot;demo03_server_client&#x2F;AddInts.h&quot;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; bool 返回值由于标志是否处理成功</span><br><span class="line">bool doReq(demo03_server_client::AddInts::Request&amp; req,</span><br><span class="line">          demo03_server_client::AddInts::Response&amp; resp)&#123;</span><br><span class="line">    int num1 &#x3D; req.num1;</span><br><span class="line">    int num2 &#x3D; req.num2;</span><br><span class="line"></span><br><span class="line">    ROS_INFO(&quot;服务器接收到的请求数据为:num1 &#x3D; %d, num2 &#x3D; %d&quot;,num1, num2);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;逻辑处理</span><br><span class="line">    if (num1 &lt; 0 || num2 &lt; 0)</span><br><span class="line">    &#123;</span><br><span class="line">        ROS_ERROR(&quot;提交的数据异常:数据不可以为负数&quot;);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;如果没有异常，那么相加并将结果赋值给 resp</span><br><span class="line">    resp.sum &#x3D; num1 + num2;</span><br><span class="line">    return true;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    setlocale(LC_ALL,&quot;&quot;);</span><br><span class="line">    &#x2F;&#x2F; 2.初始化 ROS 节点</span><br><span class="line">    ros::init(argc,argv,&quot;AddInts_Server&quot;);</span><br><span class="line">    &#x2F;&#x2F; 3.创建 ROS 句柄</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    &#x2F;&#x2F; 4.创建 服务 对象</span><br><span class="line">    ros::ServiceServer server &#x3D; nh.advertiseService(&quot;AddInts&quot;,doReq);</span><br><span class="line">    ROS_INFO(&quot;服务已经启动....&quot;);</span><br><span class="line">    &#x2F;&#x2F;     5.回调函数处理请求并产生响应</span><br><span class="line">    &#x2F;&#x2F;     6.由于请求有多个，需要调用 ros::spin()</span><br><span class="line">    ros::spin();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    需求: </span><br><span class="line">        编写两个节点实现服务通信，客户端节点需要提交两个整数到服务器</span><br><span class="line">        服务器需要解析客户端提交的数据，相加后，将结果响应回客户端，</span><br><span class="line">        客户端再解析</span><br><span class="line"></span><br><span class="line">    服务器实现:</span><br><span class="line">        1.包含头文件</span><br><span class="line">        2.初始化 ROS 节点</span><br><span class="line">        3.创建 ROS 句柄</span><br><span class="line">        4.创建 客户端 对象</span><br><span class="line">        5.请求服务，接收响应</span><br><span class="line"></span><br><span class="line">*&#x2F;</span><br><span class="line">&#x2F;&#x2F; 1.包含头文件</span><br><span class="line">#include &quot;ros&#x2F;ros.h&quot;</span><br><span class="line">#include &quot;demo03_server_client&#x2F;AddInts.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    setlocale(LC_ALL,&quot;&quot;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 调用时动态传值,如果通过 launch 的 args 传参，需要传递的参数个数 +3</span><br><span class="line">    if (argc !&#x3D; 3)</span><br><span class="line">    &#x2F;&#x2F; if (argc !&#x3D; 5)&#x2F;&#x2F;launch 传参(0-文件路径 1传入的参数 2传入的参数 3节点名称 4日志路径)</span><br><span class="line">    &#123;</span><br><span class="line">        ROS_ERROR(&quot;请提交两个整数&quot;);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 2.初始化 ROS 节点</span><br><span class="line">    ros::init(argc,argv,&quot;AddInts_Client&quot;);</span><br><span class="line">    &#x2F;&#x2F; 3.创建 ROS 句柄</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    &#x2F;&#x2F; 4.创建 客户端 对象</span><br><span class="line">    ros::ServiceClient client &#x3D; nh.serviceClient&lt;demo03_server_client::AddInts&gt;(&quot;AddInts&quot;);</span><br><span class="line">    &#x2F;&#x2F;等待服务启动成功</span><br><span class="line">    &#x2F;&#x2F;方式1</span><br><span class="line">    ros::service::waitForService(&quot;AddInts&quot;);</span><br><span class="line">    &#x2F;&#x2F;方式2</span><br><span class="line">    &#x2F;&#x2F; client.waitForExistence();</span><br><span class="line">    &#x2F;&#x2F; 5.组织请求数据</span><br><span class="line">    demo03_server_client::AddInts ai;</span><br><span class="line">    ai.request.num1 &#x3D; atoi(argv[1]); &#x2F;&#x2F;转成整型</span><br><span class="line">    ai.request.num2 &#x3D; atoi(argv[2]);</span><br><span class="line">    &#x2F;&#x2F; 6.发送请求,返回 bool 值，标记是否成功</span><br><span class="line">    bool flag &#x3D; client.call(ai);</span><br><span class="line">    &#x2F;&#x2F; 7.处理响应</span><br><span class="line">    if (flag)</span><br><span class="line">    &#123;</span><br><span class="line">        ROS_INFO(&quot;请求正常处理,响应结果:%d&quot;,ai.response.sum);</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        ROS_ERROR(&quot;请求处理失败....&quot;);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="配置-CMakeLists-txt"><a href="#配置-CMakeLists-txt" class="headerlink" title="配置 CMakeLists.txt"></a>配置 CMakeLists.txt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">add_executable(AddInts_Server src&#x2F;AddInts_Server.cpp)</span><br><span class="line">add_executable(AddInts_Client src&#x2F;AddInts_Client.cpp)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">add_dependencies(AddInts_Server $&#123;PROJECT_NAME&#125;_gencpp)</span><br><span class="line">add_dependencies(AddInts_Client $&#123;PROJECT_NAME&#125;_gencpp)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">target_link_libraries(AddInts_Server</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br><span class="line">target_link_libraries(AddInts_Client</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>需要先启动服务:rosrun 包名 服务</p>
+<p>然后再调用客户端 :rosrun 包名 客户端 参数1 参数2</p>
+<p>优化:</p>
+<p>在客户端发送请求前添加:client.waitForExistence();</p>
+<p>或:ros::service::waitForService(“AddInts”);</p>
+<p>这是一个阻塞式函数，只有服务启动成功后才会继续执行</p>
+<p>此处可以使用 launch 文件优化，但是需要注意 args 传参特点</p>
+<h1 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h1><h2 id="vscode配置-1"><a href="#vscode配置-1" class="headerlink" title="vscode配置"></a>vscode配置</h2><p>配置settings.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;python.autoComplete.extraPaths&quot;: [</span><br><span class="line">        &quot;&#x2F;opt&#x2F;ros&#x2F;noetic&#x2F;lib&#x2F;python3&#x2F;dist-packages&quot;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="服务端-1"><a href="#服务端-1" class="headerlink" title="服务端"></a>服务端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#! &#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">    需求: </span><br><span class="line">        编写两个节点实现服务通信，客户端节点需要提交两个整数到服务器</span><br><span class="line">        服务器需要解析客户端提交的数据，相加后，将结果响应回客户端，</span><br><span class="line">        客户端再解析</span><br><span class="line"></span><br><span class="line">    服务器端实现:</span><br><span class="line">        1.导包</span><br><span class="line">        2.初始化 ROS 节点</span><br><span class="line">        3.创建服务对象</span><br><span class="line">        4.回调函数处理请求并产生响应</span><br><span class="line">        5.spin 函数</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"># 1.导包</span><br><span class="line">import rospy</span><br><span class="line">from demo03_server_client.srv import AddInts,AddIntsRequest,AddIntsResponse</span><br><span class="line"># 回调函数的参数是请求对象，返回值是响应对象</span><br><span class="line">def doReq(req):</span><br><span class="line">    # 解析提交的数据</span><br><span class="line">    sum &#x3D; req.num1 + req.num2</span><br><span class="line">    rospy.loginfo(&quot;提交的数据:num1 &#x3D; %d, num2 &#x3D; %d, sum &#x3D; %d&quot;,req.num1, req.num2, sum)</span><br><span class="line"></span><br><span class="line">    # 创建响应对象，赋值并返回</span><br><span class="line">    # resp &#x3D; AddIntsResponse()</span><br><span class="line">    # resp.sum &#x3D; sum</span><br><span class="line">    resp &#x3D; AddIntsResponse(sum)</span><br><span class="line">    return resp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    # 2.初始化 ROS 节点</span><br><span class="line">    rospy.init_node(&quot;addints_server_p&quot;)</span><br><span class="line">    # 3.创建服务对象</span><br><span class="line">    server &#x3D; rospy.Service(&quot;AddInts&quot;,AddInts,doReq)</span><br><span class="line">    # 4.回调函数处理请求并产生响应</span><br><span class="line">    # 5.spin 函数</span><br><span class="line">    rospy.spin()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">#! &#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">    需求: </span><br><span class="line">        编写两个节点实现服务通信，客户端节点需要提交两个整数到服务器</span><br><span class="line">        服务器需要解析客户端提交的数据，相加后，将结果响应回客户端，</span><br><span class="line">        客户端再解析</span><br><span class="line"></span><br><span class="line">    客户端实现:</span><br><span class="line">        1.导包</span><br><span class="line">        2.初始化 ROS 节点</span><br><span class="line">        3.创建请求对象</span><br><span class="line">        4.发送请求</span><br><span class="line">        5.接收并处理响应</span><br><span class="line"></span><br><span class="line">    优化:</span><br><span class="line">        加入数据的动态获取</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">#1.导包</span><br><span class="line">import rospy</span><br><span class="line">from demo03_server_client.srv import *</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    #优化实现</span><br><span class="line">    if len(sys.argv) !&#x3D; 3:</span><br><span class="line">        rospy.logerr(&quot;请正确提交参数&quot;)</span><br><span class="line">        sys.exit(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # 2.初始化 ROS 节点</span><br><span class="line">    rospy.init_node(&quot;AddInts_Client_p&quot;)</span><br><span class="line">    # 3.创建请求对象</span><br><span class="line">    client &#x3D; rospy.ServiceProxy(&quot;AddInts&quot;,AddInts)</span><br><span class="line">    # 请求前，等待服务已经就绪</span><br><span class="line">    # 方式1:</span><br><span class="line">    # rospy.wait_for_service(&quot;AddInts&quot;)</span><br><span class="line">    # 方式2</span><br><span class="line">    client.wait_for_service()</span><br><span class="line">    # 4.发送请求,接收并处理响应</span><br><span class="line">    # 方式1</span><br><span class="line">    # resp &#x3D; client(3,4)</span><br><span class="line">    # 方式2</span><br><span class="line">    # resp &#x3D; client(AddIntsRequest(1,5))</span><br><span class="line">    # 方式3</span><br><span class="line">    req &#x3D; AddIntsRequest()</span><br><span class="line">    # req.num1 &#x3D; 100</span><br><span class="line">    # req.num2 &#x3D; 200 </span><br><span class="line"></span><br><span class="line">    #优化</span><br><span class="line">    req.num1 &#x3D; int(sys.argv[1])</span><br><span class="line">    req.num2 &#x3D; int(sys.argv[2]) </span><br><span class="line"></span><br><span class="line">    resp &#x3D; client.call(req)</span><br><span class="line">    rospy.loginfo(&quot;响应结果:%d&quot;,resp.sum)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h2><p>终端下进入 scripts 执行:chmod +x *.py</p>
+<h2 id="配置-CMakeLists-txt-1"><a href="#配置-CMakeLists-txt-1" class="headerlink" title="配置 CMakeLists.txt"></a>配置 CMakeLists.txt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS</span><br><span class="line">  scripts&#x2F;AddInts_Server_p.py </span><br><span class="line">  scripts&#x2F;AddInts_Client_p.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>需要先启动服务:rosrun 包名 服务</p>
+<p>然后再调用客户端 :rosrun 包名 客户端 参数1 参数2</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/03/09/rosmsg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/09/rosmsg/" class="post-title-link" itemprop="url">rosmsg</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-09 11:19:00" itemprop="dateCreated datePublished" datetime="2021-03-09T11:19:00+08:00">2021-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-10 12:35:14" itemprop="dateModified" datetime="2021-03-10T12:35:14+08:00">2021-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="自定义消息"><a href="#自定义消息" class="headerlink" title="自定义消息"></a>自定义消息</h1><h2 id="1-定义msg文件"><a href="#1-定义msg文件" class="headerlink" title="1.定义msg文件"></a>1.定义msg文件</h2><p>功能包下新建 msg 目录，添加文件 Person.msg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string name</span><br><span class="line">uint16 age</span><br><span class="line">float64 height</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-编辑配置文件"><a href="#2-编辑配置文件" class="headerlink" title="2.编辑配置文件"></a>2.编辑配置文件</h2><p>package.xml中添加编译依赖与执行依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;build_depend&gt;message_generation&lt;&#x2F;build_depend&gt;</span><br><span class="line">&lt;exec_depend&gt;message_runtime&lt;&#x2F;exec_depend&gt;</span><br></pre></td></tr></table></figure>
+<p>CMakeLists.txt编辑 msg 相关配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">find_package(catkin REQUIRED COMPONENTS</span><br><span class="line">  roscpp</span><br><span class="line">  rospy</span><br><span class="line">  std_msgs</span><br><span class="line">  message_generation</span><br><span class="line">)</span><br><span class="line"># 需要加入 message_generation,必须有 std_msgs</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">## 配置 msg 源文件</span><br><span class="line">add_message_files(</span><br><span class="line">  FILES</span><br><span class="line">  Person.msg</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 生成消息时依赖于 std_msgs</span><br><span class="line">generate_messages(</span><br><span class="line">  DEPENDENCIES</span><br><span class="line">  std_msgs</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#执行时依赖</span><br><span class="line">catkin_package(</span><br><span class="line">#  INCLUDE_DIRS include</span><br><span class="line">#  LIBRARIES demo02_talker_listener</span><br><span class="line">  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime</span><br><span class="line">#  DEPENDS system_lib</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>C++ 需要调用的中间文件(…/工作空间/devel/include/包名/xxx.h)</p>
+<p>Python 需要调用的中间文件(…/工作空间/devel/lib/python3/dist-packages/包名/msg)</p>
+<p>后续调用相关 msg 时，是从这些中间文件调用的</p>
+<h1 id="cpp实现"><a href="#cpp实现" class="headerlink" title="cpp实现"></a>cpp实现</h1><p>vscode配置</p>
+<p>将前面生成的 head 文件路径配置进 c_cpp_properties.json 的 includepath属性:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;includePath&quot;: [</span><br><span class="line">                &quot;&#x2F;opt&#x2F;ros&#x2F;noetic&#x2F;include&#x2F;**&quot;,</span><br><span class="line">                &quot;&#x2F;usr&#x2F;include&#x2F;**&quot;,</span><br><span class="line">                &quot;&#x2F;xxx&#x2F;yyy工作空间&#x2F;devel&#x2F;include&#x2F;**&quot; &#x2F;&#x2F;配置 head 文件的路径 </span><br><span class="line">            ],</span><br></pre></td></tr></table></figure>
+<h2 id="发布方"><a href="#发布方" class="headerlink" title="发布方"></a>发布方</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    需求: 循环发布人的信息</span><br><span class="line"></span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">#include &quot;ros&#x2F;ros.h&quot;</span><br><span class="line">#include &quot;demo02_talker_listener&#x2F;Person.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    setlocale(LC_ALL,&quot;&quot;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;1.初始化 ROS 节点</span><br><span class="line">    ros::init(argc,argv,&quot;talker_person&quot;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;2.创建 ROS 句柄</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;3.创建发布者对象</span><br><span class="line">    ros::Publisher pub &#x3D; nh.advertise&lt;demo02_talker_listener::Person&gt;(&quot;chatter_person&quot;,1000);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;4.组织被发布的消息，编写发布逻辑并发布消息</span><br><span class="line">    demo02_talker_listener::Person p;</span><br><span class="line">    p.name &#x3D; &quot;sunwukong&quot;;</span><br><span class="line">    p.age &#x3D; 2000;</span><br><span class="line">    p.height &#x3D; 1.45;</span><br><span class="line"></span><br><span class="line">    ros::Rate r(1);</span><br><span class="line">    while (ros::ok())</span><br><span class="line">    &#123;</span><br><span class="line">        pub.publish(p);</span><br><span class="line">        p.age +&#x3D; 1;</span><br><span class="line">        ROS_INFO(&quot;我叫:%s,今年%d岁,高%.2f米&quot;, p.name.c_str(), p.age, p.height);</span><br><span class="line"></span><br><span class="line">        r.sleep();</span><br><span class="line">        ros::spinOnce();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="订阅方"><a href="#订阅方" class="headerlink" title="订阅方"></a>订阅方</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    需求: 订阅人的信息</span><br><span class="line"></span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line">#include &quot;ros&#x2F;ros.h&quot;</span><br><span class="line">#include &quot;demo02_talker_listener&#x2F;Person.h&quot;</span><br><span class="line"></span><br><span class="line">void doPerson(const demo02_talker_listener::Person::ConstPtr&amp; person_p)&#123;</span><br><span class="line">    ROS_INFO(&quot;订阅的人信息:%s, %d, %.2f&quot;, person_p-&gt;name.c_str(), person_p-&gt;age, person_p-&gt;height);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;   </span><br><span class="line">    setlocale(LC_ALL,&quot;&quot;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;1.初始化 ROS 节点</span><br><span class="line">    ros::init(argc,argv,&quot;listener_person&quot;);</span><br><span class="line">    &#x2F;&#x2F;2.创建 ROS 句柄</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    &#x2F;&#x2F;3.创建订阅对象</span><br><span class="line">    ros::Subscriber sub &#x3D; nh.subscribe&lt;demo02_talker_listener::Person&gt;(&quot;chatter_person&quot;,10,doPerson);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;4.回调函数中处理 person</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;5.ros::spin();</span><br><span class="line">    ros::spin();    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="配置-CMakeLists-txt"><a href="#配置-CMakeLists-txt" class="headerlink" title="配置 CMakeLists.txt"></a>配置 CMakeLists.txt</h2><p>需要添加 add_dependencies 用以设置所依赖的消息相关的中间文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">add_executable(person_talker src&#x2F;person_talker.cpp)</span><br><span class="line">add_executable(person_listener src&#x2F;person_listener.cpp)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">add_dependencies(person_talker $&#123;PROJECT_NAME&#125;_generate_messages_cpp)</span><br><span class="line">add_dependencies(person_listener $&#123;PROJECT_NAME&#125;_generate_messages_cpp)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">target_link_libraries(person_talker</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br><span class="line">target_link_libraries(person_listener</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h1><h2 id="vscode配置"><a href="#vscode配置" class="headerlink" title="vscode配置"></a>vscode配置</h2><p>为了方便代码提示以及误抛异常，需要先配置 vscode，将前面生成的 python 文件路径配置进 settings.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;python.autoComplete.extraPaths&quot;: [</span><br><span class="line">        &quot;&#x2F;opt&#x2F;ros&#x2F;noetic&#x2F;lib&#x2F;python3&#x2F;dist-packages&quot;,</span><br><span class="line">        &quot;&#x2F;xxx&#x2F;yyy工作空间&#x2F;devel&#x2F;lib&#x2F;python3&#x2F;dist-packages&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="发布方-1"><a href="#发布方-1" class="headerlink" title="发布方"></a>发布方</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#! &#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">    发布方:</span><br><span class="line">        循环发送消息</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">import rospy</span><br><span class="line">from demo02_talker_listener.msg import Person</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    #1.初始化 ROS 节点</span><br><span class="line">    rospy.init_node(&quot;talker_person_p&quot;)</span><br><span class="line">    #2.创建发布者对象</span><br><span class="line">    pub &#x3D; rospy.Publisher(&quot;chatter_person&quot;,Person,queue_size&#x3D;10)</span><br><span class="line">    #3.组织消息</span><br><span class="line">    p &#x3D; Person()</span><br><span class="line">    p.name &#x3D; &quot;葫芦瓦&quot;</span><br><span class="line">    p.age &#x3D; 18</span><br><span class="line">    p.height &#x3D; 0.75</span><br><span class="line"></span><br><span class="line">    #4.编写消息发布逻辑</span><br><span class="line">    rate &#x3D; rospy.Rate(1)</span><br><span class="line">    while not rospy.is_shutdown():</span><br><span class="line">        pub.publish(p)  #发布消息</span><br><span class="line">        rate.sleep()  #休眠</span><br><span class="line">        rospy.loginfo(&quot;姓名:%s, 年龄:%d, 身高:%.2f&quot;,p.name, p.age, p.height)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="订阅方-1"><a href="#订阅方-1" class="headerlink" title="订阅方"></a>订阅方</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> #! &#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">    订阅方:</span><br><span class="line">        订阅消息</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">import rospy</span><br><span class="line">from demo02_talker_listener.msg import Person</span><br><span class="line"></span><br><span class="line">def doPerson(p):</span><br><span class="line">    rospy.loginfo(&quot;接收到的人的信息:%s, %d, %.2f&quot;,p.name, p.age, p.height)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    #1.初始化节点</span><br><span class="line">    rospy.init_node(&quot;listener_person_p&quot;)</span><br><span class="line">    #2.创建订阅者对象</span><br><span class="line">    sub &#x3D; rospy.Subscriber(&quot;chatter_person&quot;,Person,doPerson,queue_size&#x3D;10)</span><br><span class="line">    rospy.spin() #4.循环</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>终端下进入 scripts 执行:chmod +x *.py</p>
+<h2 id="配置-CMakeLists-txt-1"><a href="#配置-CMakeLists-txt-1" class="headerlink" title="配置 CMakeLists.txt"></a>配置 CMakeLists.txt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS</span><br><span class="line">  scripts&#x2F;talker_p.py</span><br><span class="line">  scripts&#x2F;listener_p.py</span><br><span class="line">  scripts&#x2F;person_talker.py</span><br><span class="line">  scripts&#x2F;person_listener.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/03/08/rostopic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/08/rostopic/" class="post-title-link" itemprop="url">rostopic</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-08 21:51:42" itemprop="dateCreated datePublished" datetime="2021-03-08T21:51:42+08:00">2021-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-10 12:35:28" itemprop="dateModified" datetime="2021-03-10T12:35:28+08:00">2021-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="话题通信"><a href="#话题通信" class="headerlink" title="话题通信"></a>话题通信</h1><h2 id="发布方cpp实现"><a href="#发布方cpp实现" class="headerlink" title="发布方cpp实现"></a>发布方cpp实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、包含头文件</span><br><span class="line">   ROS中文本类型 ---》 std_msgs&#x2F;String.h</span><br><span class="line">2、初始化ROS节点</span><br><span class="line">3、创建节点句柄</span><br><span class="line">4、创建发布者对象</span><br><span class="line">5、编写发布逻辑并发布数据</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;ros&#x2F;ros.h&quot;</span><br><span class="line">#include &quot;std_msgs&#x2F;String.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc , char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;初试化ros节点</span><br><span class="line">    ros::init(argc,argv,&quot;nodeName&quot;); &#x2F;&#x2F;节点名称</span><br><span class="line">    &#x2F;&#x2F;创建节点句柄</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    &#x2F;&#x2F;创建发布者对象</span><br><span class="line">    ros::Publisher pub&#x3D;nh.advertise&lt;std_msgs::String&gt;(&quot;topicName&quot;,10); </span><br><span class="line">&#x2F;&#x2F;范型：话题类型，话题名称，话题数据队列长度</span><br><span class="line">    &#x2F;&#x2F;编写发布逻辑并发布数据</span><br><span class="line">    &#x2F;&#x2F;先创建被发布的数据</span><br><span class="line">    std_msgs::String msg;</span><br><span class="line">    &#x2F;&#x2F;循环发布数据</span><br><span class="line">    while(ros::ok()) &#x2F;&#x2F;ros::ok() 节点不死</span><br><span class="line">    &#123;</span><br><span class="line">    msg.data&#x3D;&quot;hello&quot;;</span><br><span class="line">    pub.publish(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="CMakeList"><a href="#CMakeList" class="headerlink" title="CMakeList"></a>CMakeList</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add_executable()</span><br><span class="line">target_link_libraries()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rostopic echo topicName</span><br></pre></td></tr></table></figure>
+<h3 id="以10HZ发布数据-数据后面有编号"><a href="#以10HZ发布数据-数据后面有编号" class="headerlink" title="以10HZ发布数据,数据后面有编号"></a>以10HZ发布数据,数据后面有编号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;ros&#x2F;ros.h&quot;</span><br><span class="line">#include &quot;std_msgs&#x2F;String.h&quot;</span><br><span class="line">#include &lt;sstream&gt;</span><br><span class="line">int main(int argc , char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    setlocale(LC_ALL,&quot;&quot;); &#x2F;&#x2F;解决中文乱码</span><br><span class="line">    &#x2F;&#x2F;2、初试化ros节点</span><br><span class="line">    ros::init(argc,argv,&quot;nodeName&quot;); &#x2F;&#x2F;节点名称</span><br><span class="line">    &#x2F;&#x2F;3、创建节点句柄</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    &#x2F;&#x2F;4、创建发布者对象</span><br><span class="line">    ros::Publisher pub&#x3D;nh.advertise&lt;std_msgs::String&gt;(&quot;topicName&quot;,10); </span><br><span class="line">&#x2F;&#x2F;范型：话题类型，话题名称，话题数据队列长度</span><br><span class="line">    &#x2F;&#x2F;5、编写发布逻辑并发布数据</span><br><span class="line">    &#x2F;&#x2F;要求以10HZ的频率发布数据，并且文本后添加编号</span><br><span class="line">    &#x2F;&#x2F;先创建被发布的数据</span><br><span class="line">    std_msgs::String msg;</span><br><span class="line">    &#x2F;&#x2F;发布频率</span><br><span class="line">    ros::Rate rate(10); &#x2F;&#x2F;10HZ</span><br><span class="line">    &#x2F;&#x2F;计数器</span><br><span class="line">    int count&#x3D;0;</span><br><span class="line">    &#x2F;&#x2F;循环发布数据</span><br><span class="line">    while(ros::ok()) &#x2F;&#x2F;ros::ok() ros进程没死</span><br><span class="line">    &#123;</span><br><span class="line">    count ++;</span><br><span class="line">    &#x2F;&#x2F; 字符串拼接 sstream</span><br><span class="line">    std::stringstream ss;</span><br><span class="line">    ss &lt;&lt; &quot;hello ---&gt;&quot; &lt;&lt; count;</span><br><span class="line">    msg.data&#x3D;ss.str();</span><br><span class="line">    &#x2F;&#x2F;msg.data&#x3D;&quot;hello&quot;;</span><br><span class="line">    pub.publish(msg);</span><br><span class="line">    &#x2F;&#x2F;日志输出</span><br><span class="line">    ROS_INFO(&quot;发布的数据是%s&quot;,ss.str().c_str());</span><br><span class="line">    rate.sleep();</span><br><span class="line">    ros::spinOnce();&#x2F;&#x2F;官方建议添加，处理回调函数</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="订阅方cpp实现"><a href="#订阅方cpp实现" class="headerlink" title="订阅方cpp实现"></a>订阅方cpp实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、包含头文件</span><br><span class="line">   ROS中文本类型 ---》 std_msgs&#x2F;String.h</span><br><span class="line">2、初始化ROS节点</span><br><span class="line">3、创建节点句柄</span><br><span class="line">4、创建订阅者对象</span><br><span class="line">5、处理订阅到的数据</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;ros&#x2F;ros.h&quot;</span><br><span class="line">#include &quot;std_msgs&#x2F;String.h&quot;</span><br><span class="line">void doMsg(const std_msgs::String::ConstPtr &amp;msg) &#x2F;&#x2F;常指针类型</span><br><span class="line">&#123;</span><br><span class="line">&#x2F;&#x2F;通过msg获取并操作订阅到的数据</span><br><span class="line">ROS_INFO(&quot;订阅方订阅到的数据是：%s&quot;,msg-&gt;data.c_str());</span><br><span class="line">&#125;</span><br><span class="line">int main(int argc , char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    setlocale(LC_ALL,&quot;&quot;); &#x2F;&#x2F;解决中文乱码</span><br><span class="line">    &#x2F;&#x2F;初试化ros节点</span><br><span class="line">    ros::init(argc,argv,&quot;nodeName&quot;); &#x2F;&#x2F;节点名称</span><br><span class="line">    &#x2F;&#x2F;创建节点句柄</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    &#x2F;&#x2F;创建订阅者对象</span><br><span class="line">    ros::Subscriber pub&#x3D;nh.subscribe(&quot;topicName&quot;,10,doMsg); &#x2F;&#x2F;doMsg是回调函数用于处理收到的数据 </span><br><span class="line">    ros::spin(); &#x2F;&#x2F;回头，处理回调函数</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="发布方python实现"><a href="#发布方python实现" class="headerlink" title="发布方python实现"></a>发布方python实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、导包</span><br><span class="line">2、初始化ros节点</span><br><span class="line">3、创建发布者对象</span><br><span class="line">4、编写发布逻辑并发布数据</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#！ &#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">import rospy</span><br><span class="line">from std_msgs.msg import String</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    #2、初始化ros节点</span><br><span class="line">    rospy.init(&quot;nodeName&quot;)</span><br><span class="line">    #3、创建发布者对象</span><br><span class="line">    pub &#x3D; rospy.Publisher(&quot;topicName&quot;,String,queue_size&#x3D;10)</span><br><span class="line">    #4、编写发布逻辑并发布数据</span><br><span class="line">    #创建数据</span><br><span class="line">    msg&#x3D;String()</span><br><span class="line">    #使用循环发布数据</span><br><span class="line">    while not rospy.is_shutdown():</span><br><span class="line">        msg.data &#x3D;&quot;hello&quot;</span><br><span class="line">        pub.publish(msg)</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+<h3 id="CMakeList-1"><a href="#CMakeList-1" class="headerlink" title="CMakeList"></a>CMakeList</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catkin_install_python()</span><br></pre></td></tr></table></figure>
+<h3 id="以10HZ发布数据-数据后面有编号-1"><a href="#以10HZ发布数据-数据后面有编号-1" class="headerlink" title="以10HZ发布数据,数据后面有编号"></a>以10HZ发布数据,数据后面有编号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#！ &#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">import rospy</span><br><span class="line">from std_msgs.msg import String</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    #2、初始化ros节点</span><br><span class="line">    rospy.init(&quot;nodeName&quot;)</span><br><span class="line">    #3、创建发布者对象</span><br><span class="line">    pub &#x3D; rospy.Publisher(&quot;topicName&quot;,String,queue_size&#x3D;10)</span><br><span class="line">    #4、编写发布逻辑并发布数据</span><br><span class="line">    #创建数据</span><br><span class="line">    msg&#x3D;String()</span><br><span class="line">    #指定发布频率</span><br><span class="line">    rate&#x3D;rospy.Rate(1)</span><br><span class="line">    #设置计数器</span><br><span class="line">    count&#x3D;0</span><br><span class="line">    #使用循环发布数据</span><br><span class="line">    while not rospy.is_shutdown():</span><br><span class="line">        count +&#x3D;1</span><br><span class="line">        msg.data &#x3D;&quot;hello&quot; +str(count)</span><br><span class="line">        pub.publish(msg)</span><br><span class="line">        rospy.loginfo(&quot;发布的数据是%s&quot;,msg.data)</span><br><span class="line">        rate.sleep()</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+<h2 id="发布方python实现-1"><a href="#发布方python实现-1" class="headerlink" title="发布方python实现"></a>发布方python实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、导包</span><br><span class="line">2、初始化ros节点</span><br><span class="line">3、创建订阅者对象</span><br><span class="line">4、回调函数处理数据</span><br><span class="line">5、spin（）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># usr&#x2F;bin&#x2F;env python</span><br><span class="line">#coding&#x3D;utf-8</span><br><span class="line">import rospy</span><br><span class="line">from std_msgs.msg import String</span><br><span class="line"></span><br><span class="line">def doMsg(msg):</span><br><span class="line">    rospy.loginfo(&quot;data is %s&quot;,msg.data)</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    rospy.init_node(&quot;nodeName&quot;)</span><br><span class="line">    sub&#x3D;rospy.Subcriber(&quot;topicName&quot;,String,doMsg,queue_size&#x3D;10)</span><br><span class="line">    rospy.spin()</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/03/04/python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="luozhexin">
+      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onewall的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/04/python/" class="post-title-link" itemprop="url">python</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-04 22:08:32" itemprop="dateCreated datePublished" datetime="2021-03-04T22:08:32+08:00">2021-03-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/03/02/linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -341,17 +972,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-02-19 00:17:52 / 修改时间：00:37:30" itemprop="dateCreated datePublished" datetime="2021-02-19T00:17:52+08:00">2021-02-19</time>
+              <time title="创建时间：2021-02-19 00:17:52" itemprop="dateCreated datePublished" datetime="2021-02-19T00:17:52+08:00">2021-02-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-10 12:36:27" itemprop="dateModified" datetime="2021-03-10T12:36:27+08:00">2021-03-10</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/clash/" itemprop="url" rel="index"><span itemprop="name">clash</span></a>
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
                 </span>
             </span>
 
@@ -395,656 +1032,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/02/19/ubunturos/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/profile.jpg">
-      <meta itemprop="name" content="luozhexin">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onewall的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/19/ubunturos/" class="post-title-link" itemprop="url">安装ROS</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-19 00:12:35 / 修改时间：00:17:37" itemprop="dateCreated datePublished" datetime="2021-02-19T00:12:35+08:00">2021-02-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1、设置依赖源"><a href="#1、设置依赖源" class="headerlink" title="1、设置依赖源"></a>1、设置依赖源</h1><p>在软件包设置中，勾上前面的勾，勾选源代码，选择清华的源。</p>
-<p>安装ros.wiki.org/cn 里面的教程，一步步安装。亲测速度飞起，4分钟安装好。</p>
-<h1 id="2、找不到rosdep"><a href="#2、找不到rosdep" class="headerlink" title="2、找不到rosdep"></a>2、找不到rosdep</h1><p>sudo apt install python-rosdep</p>
-<p>然后再试一次。</p>
-<h1 id="3、rosdep-update出问题"><a href="#3、rosdep-update出问题" class="headerlink" title="3、rosdep update出问题"></a>3、rosdep update出问题</h1><p>可以搜一下网址的ip，然后修改/etc/hosts 文件<br>ip地址 网站域名</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/02/18/ubuntudisk/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/profile.jpg">
-      <meta itemprop="name" content="luozhexin">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onewall的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/18/ubuntudisk/" class="post-title-link" itemprop="url">在移动硬盘中建立ubuntu双系统</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-18 23:53:28" itemprop="dateCreated datePublished" datetime="2021-02-18T23:53:28+08:00">2021-02-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-19 00:12:17" itemprop="dateModified" datetime="2021-02-19T00:12:17+08:00">2021-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1、压缩卷"><a href="#1、压缩卷" class="headerlink" title="1、压缩卷"></a>1、压缩卷</h1><p>在windows电脑下，找到’此电脑‘，右键管理。</p>
-<p>找到磁盘管理，在移动硬盘中，右键压缩卷。本文压缩了60GB。</p>
-<h1 id="2、制作ISO"><a href="#2、制作ISO" class="headerlink" title="2、制作ISO"></a>2、制作ISO</h1><p>使用UltarISO，’文件‘-》’打开‘，找到镜像</p>
-<p>’启动‘-》’写入硬盘映像‘</p>
-<p>选择好u盘后格式化再写入。</p>
-<h1 id="3、给硬盘分区"><a href="#3、给硬盘分区" class="headerlink" title="3、给硬盘分区"></a>3、给硬盘分区</h1><p>将u盘插入电脑，开机F12，mac电脑是option，不停地点。</p>
-<p>选择u盘引导进入，选择try ubuntu without install</p>
-<p>进入后，点击install ubuntu。选择安装安装，记得勾选上安装无线设备（我试过mac如果没有勾选的话，没有wifi）。</p>
-<p>安装类型选择’其他选项‘，在移动硬盘的空闲，点+分区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">8000  swap</span><br><span class="line">30000 逻辑 &#x2F;</span><br><span class="line">500 主分区 &#x2F;boot</span><br><span class="line">剩余空间 逻辑 &#x2F;home </span><br></pre></td></tr></table></figure>
-<p>安装启动引导器的设备要为/boot所在的盘符</p>
-<h1 id="4、安装"><a href="#4、安装" class="headerlink" title="4、安装"></a>4、安装</h1><p>安装好后，点击立即重启。重启后进入引导选择ubuntu或者windows。</p>
-<p>如果拔掉移动硬盘，开机会进入grub。此时输入exit，就能回到windows。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/02/01/aptupdate/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/profile.jpg">
-      <meta itemprop="name" content="luozhexin">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onewall的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/01/aptupdate/" class="post-title-link" itemprop="url">树莓派3b ubuntu18.04-mate apt update慢 解决方案</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-01 20:37:19" itemprop="dateCreated datePublished" datetime="2021-02-01T20:37:19+08:00">2021-02-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-02 15:21:22" itemprop="dateModified" datetime="2021-02-02T15:21:22+08:00">2021-02-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="修改-etc-apt-sources-list"><a href="#修改-etc-apt-sources-list" class="headerlink" title="修改 /etc/apt/sources.list"></a>修改 /etc/apt/sources.list</h1><p><code>sudo vim /etc/apt/sources.list</code></p>
-<p>用<code>dd</code>将改行删除，在<code>i</code>右键，将内容更改为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic main restricted</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic main restricted</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-updates main restricted</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-updates main restricted</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic universe</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic universe</span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-updates universe</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-updates universe</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-updates multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-updates multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-security main restricted</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-security main restricted</span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-security universe</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-security universe</span><br><span class="line">deb http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-security multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;ports.ubuntu.com&#x2F;ubuntu-ports bionic-security multiverse</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>再在vim中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:%s&#x2F;ports.ubuntu.com&#x2F;mirrors.aliyun.com&#x2F;g</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/02/01/swap/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/profile.jpg">
-      <meta itemprop="name" content="luozhexin">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onewall的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/01/swap/" class="post-title-link" itemprop="url">树莓派3b ubuntu18.04-mate扩展swap空间</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-01 18:53:51" itemprop="dateCreated datePublished" datetime="2021-02-01T18:53:51+08:00">2021-02-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-02 15:08:06" itemprop="dateModified" datetime="2021-02-02T15:08:06+08:00">2021-02-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>之前用树莓派3b编译奥比中光的ros包时，常常编译到一半树莓派就卡死，其原因是默认的物理内存1GB是不够用的，常常造成卡机死机等现象，这里需要添加SWAP扩展空间，其实就是当系统内存不足时会用硬盘上SWAP分区作为虚拟内存。</p>
-<p>由于我的microSD卡是32GB的，所以可以多分配一些给SWAP，所以分配4GB给SWAP空间。具体步骤如下：</p>
-<h1 id="查看swap空间大小"><a href="#查看swap空间大小" class="headerlink" title="查看swap空间大小"></a>查看swap空间大小</h1><p>输入<code>free -m</code></p>
-<p>显示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">              total        used        free      shared  buff&#x2F;cache   available</span><br><span class="line">Mem:            912         412          69          19         430         417</span><br><span class="line">Swap:           127           0         127</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/01/swap/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/02/01/ssh/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/profile.jpg">
-      <meta itemprop="name" content="luozhexin">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onewall的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/01/ssh/" class="post-title-link" itemprop="url">树莓派3b ubuntu18.04-mate ssh</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-01 18:33:46" itemprop="dateCreated datePublished" datetime="2021-02-01T18:33:46+08:00">2021-02-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-02 15:09:09" itemprop="dateModified" datetime="2021-02-02T15:09:09+08:00">2021-02-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="安装ssh服务端"><a href="#安装ssh服务端" class="headerlink" title="安装ssh服务端"></a>安装ssh服务端</h1><p>sudo apt-get install openssh-server</p>
-<p>显示已经安装</p>
-<h1 id="开启ssh服务"><a href="#开启ssh服务" class="headerlink" title="开启ssh服务"></a>开启ssh服务</h1><p>sudo service ssh start</p>
-<h1 id="检查ssh是否启动，使用下面命令"><a href="#检查ssh是否启动，使用下面命令" class="headerlink" title="检查ssh是否启动，使用下面命令"></a>检查ssh是否启动，使用下面命令</h1><p>ps -e | grep ssh</p>
-<p>如果输出中含有ssh-agent和sshd就说明成功了 </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/01/ssh/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/31/ros5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/profile.jpg">
-      <meta itemprop="name" content="luozhexin">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onewall的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/31/ros5/" class="post-title-link" itemprop="url">ROS笔记（五）ROS文件系统相关命令和ROS计算图</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-01-31 21:10:36 / 修改时间：22:16:48" itemprop="dateCreated datePublished" datetime="2021-01-31T21:10:36+08:00">2021-01-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1、增"><a href="#1、增" class="headerlink" title="1、增"></a>1、增</h1><p>catkin_create_pkg 自定义包名 依赖包 === 创建新的ROS功能包</p>
-<p>sudo apt install xxx === 安装 ROS功能包</p>
-<h1 id="2、删"><a href="#2、删" class="headerlink" title="2、删"></a>2、删</h1><p>sudo apt purge xxx ==== 删除某个功能包</p>
-<h1 id="3、查"><a href="#3、查" class="headerlink" title="3、查"></a>3、查</h1><p>rospack list === 列出所有功能包</p>
-<p>rospack find 包名 === 查找某个功能包是否存在，如果存在返回安装路径</p>
-<p>roscd 包名 === 进入某个功能包</p>
-<p>rosls 包名 === 列出某个包下的文件</p>
-<p>apt search xxx === 搜索某个功能包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt search ros-melodic-* | grep -i gmapping </span><br><span class="line">&#x2F;&#x2F;查找melodic下gmapping为关键字的包</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/31/ros5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/31/ros4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/profile.jpg">
-      <meta itemprop="name" content="luozhexin">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onewall的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/31/ros4/" class="post-title-link" itemprop="url">ROS笔记（四）ROS文件系统与package.xml、CMakeLists.txt解析</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-31 21:10:32" itemprop="dateCreated datePublished" datetime="2021-01-31T21:10:32+08:00">2021-01-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-01 18:01:22" itemprop="dateModified" datetime="2021-02-01T18:01:22+08:00">2021-02-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="ROS文件系统"><a href="#ROS文件系统" class="headerlink" title="ROS文件系统"></a>ROS文件系统</h1><p>ROS文件系统级指的是在硬盘上ROS源代码的组织形式，其结构大致可以如下图所示：</p>
-<p><img src="https://github.com/luozhexin/luozhexin.github.io/blob/master/images/ros_system.jpg" alt="avatar"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/31/ros4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://luozhexin.github.io/2021/01/31/ros3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/profile.jpg">
-      <meta itemprop="name" content="luozhexin">
-      <meta itemprop="description" content="怕什么真理无穷，进一寸有一寸的欢喜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onewall的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/31/ros3/" class="post-title-link" itemprop="url">ROS笔记（三）launch文件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-01-31 20:23:02 / 修改时间：22:04:23" itemprop="dateCreated datePublished" datetime="2021-01-31T20:23:02+08:00">2021-01-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>1、选定功能包右击 —&gt; 添加 launch 文件夹</p>
-<p>2、选定 launch 文件夹右击 —&gt; 添加 launch 文件</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/31/ros3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1112,20 +1103,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
